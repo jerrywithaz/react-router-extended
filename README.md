@@ -2,6 +2,12 @@
 
 Centralized routing for React Router. Better React Router Routing allows you to centralize your `react-router` routes in a configuration file and render nested routes with ease. It also provides an easy way to capture invalid routes and secure routes that require authentication.
 
+## Installation
+
+`yarn add @jerrywithaz/better-react-router-routing`
+
+`npm install @jerrywithaz/better-react-router-routing`
+
 ## Usage
 
 ### Define your routes
@@ -59,7 +65,8 @@ export default routes;
 
 ### Setup your app and render your routes
 
-Better React Routing is unopnionated about your authentication protocol. The only thing we need is a boolean that indicates whether or not a user is authenticated. In the demo below we are using an example redux  provider and a `useAuthenticated` hook that grabs the authentication status from the store and returns a boolean. Any route that is marked as `secure` will render the `RedirectToLogin` component which by default just redirects the user to `/login`.
+Better React Routing is unopnionated about your authentication protocol. The only thing we need is a boolean that indicates whether or not a user is authenticated. In the demo below we are using an example redux  provider and a `useAuthenticated` hook that grabs the authentication status from the store and returns a boolean. Any route that is marked as `secure` will render the `UnauthorizedRedirect` component which by default just redirects the user to `/login`. But, you can customize
+the redirect path by pasing either a string or function to the `redirectPath` prop of `BetterReactRoutingProvider`. 
 
 ```jsx
 import BetterReactRoutingProvider, { Switch, Capture404 } from '@jerrywithaz/better-react-router-routing';
