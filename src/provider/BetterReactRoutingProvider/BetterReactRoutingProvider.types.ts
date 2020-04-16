@@ -1,11 +1,11 @@
-type RedirectPathFunction = (props: any) => string;
+import { RedirectPath } from "../../types";
 
 export type BetterReactRoutingContextValue = {
     authenticated: boolean;
-    redirectPath: RedirectPathFunction | string;
+    redirectPath: RedirectPath;
 };
 
 export type BetterReactRoutingProviderProps = {
     authenticated: boolean;
-    redirectPath?: RedirectPathFunction | string;
+    redirectPath?: RedirectPath;
 };

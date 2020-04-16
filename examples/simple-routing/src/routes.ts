@@ -21,7 +21,7 @@ const routes: RouteConfig[] = [
   },
   {
     key: "route-home-ui",
-    secure: true,
+    secure: false,
     path: "/home",
     component: Dashboard,
     exact: false,
@@ -38,7 +38,13 @@ const routes: RouteConfig[] = [
         secure: true,
         path: "/home/user",
         component: UserView,
-        exact: true
+        exact: true,
+        redirectPath: () => {
+          return {
+            pathname: "/login",
+            search: "?customRedirect=cool"
+          };
+        }
       }
     ]
   }

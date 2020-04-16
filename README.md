@@ -65,14 +65,13 @@ export default routes;
 
 ### Setup your app and render your routes
 
-Better React Routing is unopnionated about your authentication protocol. The only thing we need is a boolean that indicates whether or not a user is authenticated. In the demo below we are using an example redux  provider and a `useAuthenticated` hook that grabs the authentication status from the store and returns a boolean. Any route that is marked as `secure` will render the `UnauthorizedRedirect` component which by default just redirects the user to `/login`. But, you can customize
-the redirect path by pasing either a string or function to the `redirectPath` prop of `BetterReactRoutingProvider`. 
+Better React Routing is unopnionated about your authentication protocol. The only thing we need is a boolean that indicates whether or not a user is authenticated. In the demo below we are using an example redux  provider and a `useAuthenticated` hook that grabs the authentication status from the store and returns a boolean. Any route that is marked as `secure` will render the `UnauthorizedRedirect` component if not authenticated. By default it just redirects the user to `/login`. But, you can customize the redirect path by pasing either a string or function to the `redirectPath` prop of `BetterReactRoutingProvider`.
 
 ```jsx
 import BetterReactRoutingProvider, { Switch, Capture404 } from '@jerrywithaz/better-react-router-routing';
 
 function useAuthenticated() {
-  const authenticated = useSelector(Selectors.Auth.authenticated);
+  const authenticated = useSelector((state: AppState) => state.auth.authenticated);
   return authenticated;
 }
 
@@ -147,7 +146,8 @@ const routes: RouteConfig[] = [
         secure: true,
         path: "/home/user",
         component: UserView,
-        exact: true
+        exact: true,
+        redirectPath: () => "/signup"
       }
     ]
   }

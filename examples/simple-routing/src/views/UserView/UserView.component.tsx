@@ -3,11 +3,18 @@ import { Http } from "@status/codes";
 import { UnauthorizedRedirect } from '@jerrywithaz/better-react-router-routing';
 import DocumentTitle from "../../components/DocumentTitle";
 import useUser from "../../hooks/useUser";
+import { UserViewProps } from "./UserView.types";
 
-const UserView: FunctionComponent = () => {
+const UserView: FunctionComponent<UserViewProps> = ({
+  redirectPath
+}) => {
   const user = useUser();
 
-  if (!user) return <UnauthorizedRedirect reason={Http.BadRequest} />;
+  if (!user) return (
+    <UnauthorizedRedirect 
+      componentRedirectPath={redirectPath} 
+      reason={Http.BadRequest} />
+  );
 
   return (
     <React.Fragment>

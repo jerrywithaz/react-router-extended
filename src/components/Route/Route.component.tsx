@@ -16,6 +16,7 @@ const Route: FunctionComponent<RouteProps> = ({
   secure: isSecureRoute = true,
   component: Component,
   routes,
+  redirectPath,
   ...restProps
 }: RouteProps) => {
   const { authenticated: isAuthenticated } = useBetterReactRouting();
@@ -23,12 +24,17 @@ const Route: FunctionComponent<RouteProps> = ({
   function render(routeProps: RouteComponentProps) {
     if (isSecureRoute) {
       if (isAuthenticated) {
-        return <Component {...routeProps} routes={routes} />;
+        return <Component {...routeProps} redirectPath={redirectPath} routes={routes} />;
       } else {
-        return <UnauthorizedRedirect componentProps={routeProps} reason={Http.Unauthorized} />;
+        return (
+          <UnauthorizedRedirect 
+            componentProps={routeProps} 
+            componentRedirectPath={redirectPath} 
+            reason={Http.Unauthorized} />
+        );
       }
     } else {
-      return <Component {...routeProps} routes={routes} />;
+      return <Component {...routeProps} redirectPath={redirectPath} routes={routes} />;
     }
   }
 
