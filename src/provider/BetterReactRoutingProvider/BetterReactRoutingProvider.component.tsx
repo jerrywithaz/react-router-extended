@@ -9,12 +9,12 @@ const BetterReactRoutingContext = React.createContext<BetterReactRoutingContextV
 const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderProps> = ({
     authenticated,
     children,
-    loginPath = "/login"
+    redirectPath = "login" 
 }) => {
 
     const value = {
         authenticated,
-        loginPath
+        redirectPath
     };
 
     return (

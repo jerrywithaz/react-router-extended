@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { Http } from "@status/codes";
 import { RouteProps } from "./Route.types";
-import RedirectToLogin from "../RedirectToLogin";
+import UnauthorizedRedirect from "../UnauthorizedRedirect";
 import useBetterReactRouting from "../../hooks/useBetterReactRouting";
 
 /**
@@ -25,7 +25,7 @@ const Route: FunctionComponent<RouteProps> = ({
       if (isAuthenticated) {
         return <Component {...routeProps} routes={routes} />;
       } else {
-        return <RedirectToLogin reason={Http.Unauthorized} />;
+        return <UnauthorizedRedirect componentProps={routeProps} reason={Http.Unauthorized} />;
       }
     } else {
       return <Component {...routeProps} routes={routes} />;

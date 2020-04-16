@@ -81,8 +81,20 @@ const AppRoutes: FunctionComponent = () => {
 
     const authenticated = useAuthenticated();  
 
+    function redirectPath(componentProps: any) {
+
+        const { invitationCode } = useLocationParams();
+
+        if (invitationCode) {
+            return `/invitation?code=${invitationCode}`;
+        }
+
+        return "/login";
+
+    }
+
     return (
-        <BetterReactRoutingProvider authenticated={authenticated} loginPath="/login">
+        <BetterReactRoutingProvider authenticated={authenticated} redirectPath={redirectPath}>
             <Capture404
                 FoundComponent={PageFound}
                 NotFoundComponent={PageNotFound}/>

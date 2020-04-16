@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
-import DocumentTitle from "../../components/DocumentTitle";
-import { RedirectToLogin } from '@jerrywithaz/better-react-router-routing';
-import useUser from "../../hooks/useUser";
 import { Http } from "@status/codes";
+import { UnauthorizedRedirect } from '@jerrywithaz/better-react-router-routing';
+import DocumentTitle from "../../components/DocumentTitle";
+import useUser from "../../hooks/useUser";
 
 const UserView: FunctionComponent = () => {
   const user = useUser();
 
-  if (!user) return <RedirectToLogin reason={Http.BadRequest} />;
+  if (!user) return <UnauthorizedRedirect reason={Http.BadRequest} />;
 
   return (
     <React.Fragment>
