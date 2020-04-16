@@ -2,7 +2,7 @@ import HomeView from "./views/HomeView";
 import LoginView from "./views/LoginView";
 import UserView from "./views/UserView";
 import Dashboard from "./components/Dashboard";
-import { RouteConfig } from "../../../src/types";
+import { RouteConfig } from "@jerrywithaz/better-react-router-routing";
 
 const routes: RouteConfig[] = [
   {

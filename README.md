@@ -11,7 +11,7 @@ import HomeView from "./views/HomeView";
 import LoginView from "./views/LoginView";
 import UserView from "./views/UserView";
 import Dashboard from "./components/Dashboard";
-import { RouteConfig } from "../../../src/types";
+import { RouteConfig } from "@jerrywithaz/better-react-router-routing";
 
 const routes: RouteConfig[] = [
   {
@@ -59,8 +59,19 @@ export default routes;
 
 ### Setup your app and render your routes
 
+Better React Routing is unopnionated about your authentication protocol. The only thing we need is a boolean that indicates whether or not a user is authenticated. In the demo below we are using an example redux  provider and a `useAuthenticated` hook that grabs the authentication status from the store and returns a boolean.
+
 ```jsx
 import BetterReactRoutingProvider, { Switch, Capture404 } from '@jerrywithaz/better-react-router-routing';
+
+function useAuthenticated() {
+  const authenticated = useSelector(Selectors.Auth.authenticated);
+  return authenticated;
+}
+
+const PageNotFound = () => {
+    return <div>Page not found</div>;
+};
 
 const PageFound = () => {
     return <Switch routes={routes}/>
