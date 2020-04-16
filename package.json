@@ -1,6 +1,6 @@
 {
   "name": "@jerrywithaz/better-react-router-routing",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "keywords": [
     "react-router",
     "react",
@@ -50,7 +50,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-examples": "react-scripts build",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.ts,test.ts,__snapshots__ --extensions \".ts,.tsx\" --source-maps inline"
+    "build": "tsc",
+    "prepare" : "npm run build"
   },
   "browserslist": [
     ">0.2%",
