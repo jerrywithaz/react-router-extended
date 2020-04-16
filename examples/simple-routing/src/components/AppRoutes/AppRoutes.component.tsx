@@ -15,8 +15,7 @@ const AppRoutes: FunctionComponent = () => {
 
     const authenticated = useAuthenticated();
 
-    function redirectPath(componentProps: any) {
-        console.log(componentProps);
+    function redirectPath() {
         return "/login";
     }
 

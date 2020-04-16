@@ -82,15 +82,10 @@ const AppRoutes: FunctionComponent = () => {
     const authenticated = useAuthenticated();  
 
     function redirectPath(componentProps: any) {
-
-        const { invitationCode } = useLocationParams();
-
-        if (invitationCode) {
-            return `/invitation?code=${invitationCode}`;
+        if (componentProps.invitationCode) {
+            return `/invitation?code=${componentProps.invitationCode}`;
         }
-
         return "/login";
-
     }
 
     return (
