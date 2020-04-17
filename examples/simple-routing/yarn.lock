@@ -1065,10 +1065,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@jerrywithaz/better-react-router-routing@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.0.13.tgz#13de5cacb51aa250af397ecbbc85b243e72d1c22"
-  integrity sha512-Ppt3NmPGFspfaUxQsCLIgo5i7uBAgA8Xh93qHyEowSLZxjUggwBwlqC9f3p+pqSH6KEaHU2SD6CLRenY6UCTew==
+"@jerrywithaz/better-react-router-routing@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.0.15.tgz#7b28eb77df0f9762f35e726031372443a05f7554"
+  integrity sha512-tOLk36dDX3vpWmYTNjeSoEAW3bDfSjtBTNBfjoMW6M6LeYsliNX+JklvJg8mqiuODUfO3IHsklJuJ9LY+Ncqiw==
   dependencies:
     "@status/codes" latest
     "@types/history" "4.7.5"

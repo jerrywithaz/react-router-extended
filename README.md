@@ -96,9 +96,7 @@ const AppRoutes: FunctionComponent = () => {
 
     return (
         <BetterReactRoutingProvider authenticated={authenticated} redirectPath={redirectPath}>
-            <Capture404
-                FoundComponent={PageFound}
-                NotFoundComponent={PageNotFound}/>
+            <Capture404 FoundComponent={PageFound} NotFoundComponent={PageNotFound}/>
         </BetterReactRoutingProvider>
     );
 }

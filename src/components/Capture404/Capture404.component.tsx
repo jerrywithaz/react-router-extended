@@ -18,9 +18,9 @@ const Capture404: FunctionComponent<Capture404Props> = ({
   } = useLocation();
 
   if (state.status === Http.NotFound) {
-    return <NotFoundComponent />;
+    return <NotFoundComponent is404={true}/>;
   } else {
-    return <FoundComponent />;
+    return <FoundComponent is404={false}/>;
   }
 };
 
