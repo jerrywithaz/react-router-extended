@@ -1,6 +1,6 @@
 {
   "name": "@jerrywithaz/better-react-router-routing",
-  "version": "1.0.15",
+  "version": "1.1.0",
   "keywords": [
     "react-router",
     "react",
@@ -10,12 +10,6 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@status/codes": "latest",
-    "@types/history": "4.7.5",
-    "@types/react": "16.9.34",
-    "@types/react-dom": "16.9.6",
-    "@types/react-redux": "7.1.7",
-    "@types/react-router": "5.1.5",
-    "@types/react-router-dom": "5.1.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "5.1.2",
@@ -27,14 +21,19 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "@types/react": "16.9.19",
-    "@types/react-dom": "16.9.5",
+    "@types/history": "4.7.5",
+    "@types/react": "16.9.34",
+    "@types/react-dom": "16.9.6",
+    "@types/react-redux": "7.1.7",
+    "@types/react-router": "5.1.5",
+    "@types/react-router-dom": "5.1.4",
+    "@types/styled-components": "^5.1.0",
     "typescript": "3.7.5"
   },
   "scripts": {
     "build": "tsc",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
   },
   "browserslist": [
     ">0.2%",

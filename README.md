@@ -1,6 +1,7 @@
 # Better React Router Routing
 
-Centralized routing for React Router. Better React Router Routing allows you to centralize your `react-router` routes in a configuration file and render nested routes with ease. It also provides an easy way to capture invalid routes and secure routes that require authentication.
+Centralized and accessible routing for React Router. Better React Router Routing allows you to centralize your `react-router` routes in a configuration file and render nested routes with ease. It also provides an easy way to capture invalid routes and secure routes that require authentication. In 
+addition, better react router routing ensures that your routing is accessible to users using a screen reader.
 
 ## Installation
 

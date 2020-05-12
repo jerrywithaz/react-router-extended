@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import BetterReactRoutingProvider, { Switch, Capture404 } from '@jerrywithaz/better-react-router-routing';
+import { Fade } from 'react-awesome-reveal';
 import useAuthenticated from '../../hooks/useAuthenticated';
 import routes from '../../routes';
 import PageNotFound from '../PageNotFound';

@@ -993,6 +993,34 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/suited.suited-design-system.buttons.suited-button@1.0.4":
+  version "1.0.4"
+  resolved "https://node.bit.dev/suited.suited-design-system.buttons.suited-button/-/suited.suited-design-system.buttons.suited-button-1.0.4.tgz#eafd10d2d51a26911fccdeef9d2ed7aa420e1100"
+  integrity sha1-6v0Q0tUaJpEfzN7vnS7XqkIOEQA=
+  dependencies:
+    "@bit/suited.suited-design-system.constants.style-constants" "1.0.0"
+    "@bit/suited.suited-design-system.util.css-color-transforms" "1.0.1"
+
+"@bit/suited.suited-design-system.constants.style-constants@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/suited.suited-design-system.constants.style-constants/-/suited.suited-design-system.constants.style-constants-1.0.0.tgz#c47fc34a6686dbfa5e6927b98020eefa3506f94e"
+  integrity sha1-xH/DSmaG2/peaSe5gCDu+jUG+U4=
+
+"@bit/suited.suited-design-system.test-button@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/suited.suited-design-system.test-button/-/suited.suited-design-system.test-button-0.0.1.tgz#723bb1816743f095a3764d4d27d6a44bf9b27f87"
+  integrity sha1-cjuxgWdD8JWjdk1NJ9akS/myf4c=
+  dependencies:
+    "@bit/suited.suited-design-system.buttons.suited-button" "1.0.4"
+    "@testing-library/jest-dom" "^4.2.4"
+    "@testing-library/react" "^9.3.2"
+    jest-styled-components "^7.0.2"
+
+"@bit/suited.suited-design-system.util.css-color-transforms@1.0.1":
+  version "1.0.1"
+  resolved "https://node.bit.dev/suited.suited-design-system.util.css-color-transforms/-/suited.suited-design-system.util.css-color-transforms-1.0.1.tgz#6005a599e7f60084f1c34b114d7cfc1041f4a50a"
+  integrity sha1-YAWlmef2AITxw0sRTXz8EEH0pQo=
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1065,10 +1093,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@jerrywithaz/better-react-router-routing@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.0.15.tgz#7b28eb77df0f9762f35e726031372443a05f7554"
-  integrity sha512-tOLk36dDX3vpWmYTNjeSoEAW3bDfSjtBTNBfjoMW6M6LeYsliNX+JklvJg8mqiuODUfO3IHsklJuJ9LY+Ncqiw==
+"@jerrywithaz/better-react-router-routing@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.0.16.tgz#ab29a26e266e399b27b867c61b40cfe8b8d55395"
+  integrity sha512-GJbTQp/OSshFJqx4AH1HhAy+WKzIrDpi+zmSpz7ZlxLcUA237b3g5cfxMJoUCTNpnzc5pXkXbavo/KBoOvsdKQ==
   dependencies:
     "@status/codes" latest
     "@types/history" "4.7.5"
@@ -3076,6 +3104,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 clean-css@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
@@ -3594,7 +3627,7 @@ css.escape@^1.5.1:
   resolved "https://registry.yarnpkg.com/css.escape/-/css.escape-1.5.1.tgz#42e27d4fa04ae32f931a4b4d4191fa9cddee97cb"
   integrity sha1-QuJ9T6BK4y+TGktNQZH6nN3ul8s=
 
-css@^2.0.0, css@^2.2.3:
+css@^2.0.0, css@^2.2.3, css@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
   integrity sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw==
@@ -6317,6 +6350,13 @@ jest-snapshot@^24.9.0:
     pretty-format "^24.9.0"
     semver "^6.2.0"
 
+jest-styled-components@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-7.0.2.tgz#b7711871ea74a04491b12bad123fa35cc65a2a80"
+  integrity sha512-i1Qke8Jfgx0Why31q74ohVj9S2FmMLUE8bNRSoK4DgiurKkXG6HC4NPhcOLAz6VpVd9wXkPn81hOt4aAQedqsA==
+  dependencies:
+    css "^2.2.4"
+
 jest-util@^24.0.0, jest-util@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-24.9.0.tgz#7396814e48536d2e85a37de3e4c431d7cb140162"
@@ -8680,7 +8720,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8846,6 +8886,15 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-awesome-reveal@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/react-awesome-reveal/-/react-awesome-reveal-2.4.2.tgz#341368bddcffaddf8a3130d5ac2cb25247246aae"
+  integrity sha512-vXd1EyfL/aqBa5jy5tVVkdicGZclCV0fVRroTBqxftU42sMF3qqcRSquHC0UUfQkzvoy8hHqilHDq+CMBwatlg==
+  dependencies:
+    classnames "^2.2.6"
+    react-intersection-observer "^8.25.1"
+    react-is "^16.12.0"
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
@@ -8891,6 +8940,13 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+react-intersection-observer@^8.25.1:
+  version "8.26.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.26.1.tgz#0d72e54eb00d7710d9e8dc1109cc09791e06bb1b"
+  integrity sha512-eMA7K1G5CqJYkl8TjWJFEd8FtIXWHb93RAWMtZ4duEJ5DYh5E7KQcuzTGI155vTwfJ257JD+Jk5S/NJzz+DhlQ==
+  dependencies:
+    tiny-invariant "^1.1.0"
+
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -8906,6 +8962,13 @@ react-redux@7.2.0:
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
     react-is "^16.9.0"
+
+react-reveal@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-reveal/-/react-reveal-1.2.2.tgz#f47fbc44debc4c185ae2163a215a9e822c7adfef"
+  integrity sha512-JCv3fAoU6Z+Lcd8U48bwzm4pMZ79qsedSXYwpwt6lJNtj/v5nKJYZZbw3yhaQPPgYePo3Y0NOCoYOq/jcsisuw==
+  dependencies:
+    prop-types "^15.5.10"
 
 react-router-dom@5.1.2:
   version "5.1.2"
@@ -10369,7 +10432,7 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
-tiny-invariant@^1.0.2:
+tiny-invariant@^1.0.2, tiny-invariant@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
   integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==

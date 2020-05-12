@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import {
   Route as ReactRouterRoute,
   RouteComponentProps
@@ -13,13 +13,15 @@ import useBetterReactRouting from "../../hooks/useBetterReactRouting";
  * authentication and sub-routes for the application.
  */
 const Route: FunctionComponent<RouteProps> = ({
+  a11yMessage,
   secure: isSecureRoute = true,
   component: Component,
   routes,
   redirectPath,
+  title,
   ...restProps
 }: RouteProps) => {
-  const { authenticated: isAuthenticated } = useBetterReactRouting();
+  const { authenticated: isAuthenticated, setA11yMessage, setDocumentTitle } = useBetterReactRouting();
 
   function render(routeProps: RouteComponentProps) {
     if (isSecureRoute) {
@@ -38,6 +40,11 @@ const Route: FunctionComponent<RouteProps> = ({
     }
   }
 
+  useEffect(() => {
+    setA11yMessage(a11yMessage);
+    setDocumentTitle(title);
+  }, []);
+  
   return <ReactRouterRoute {...restProps} render={render} />;
 };
 

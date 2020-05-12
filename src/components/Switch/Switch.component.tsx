@@ -10,14 +10,18 @@ import { SwitchProps } from "./Switch.types";
  * throw 404 errors to a user.
  */
 const Switch: FunctionComponent<SwitchProps> = ({
+  Animation = React.Fragment,
+  canView = true,
   routes,
   ...switchProps
 }: SwitchProps) => {
   return (
     <ReactRouterSwitch {...switchProps}>
-      {routes.map(route => (
-        <Route {...route} />
-      ))}
+      {canView && (
+        routes.map(route => (
+          <Route {...route} />
+        ))
+      )}
       <RouteNotFound />
     </ReactRouterSwitch>
   );

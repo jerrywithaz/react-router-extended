@@ -6,6 +6,8 @@ export type RedirectPathFunction = (props: any) => History.LocationDescriptor;
 
 export type RedirectPath = RedirectPathFunction | History.LocationDescriptor;
 
+export type RouteTitleFunction = (props: any) => string;
+
 export type RouteConfigComponentProps<
   Params = any,
   State = History.LocationState
@@ -23,10 +25,12 @@ export type RouteConfig = Omit<
   RouteProps,
   "render" | "children" | "component" | "exact"
 > & {
+  a11yMessage: string;
   exact: boolean;
   component: RouteConfigComponent<any, any>;
   key: string;
   redirectPath?: RedirectPath;
   routes?: RouteConfig[];
   secure: boolean;
+  title: string;
 };
