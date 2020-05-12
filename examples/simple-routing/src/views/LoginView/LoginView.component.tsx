@@ -3,7 +3,6 @@ import { Redirect } from "react-router";
 import { Http } from "@status/codes";
 import useAuth from "./../../hooks/useAuth";
 import useAuthenticated from "../../hooks/useAuthenticated";
-import DocumentTitle from "../../components/DocumentTitle";
 import { LoginViewProps } from "./LoginView.types";
 import LoginViewForm from "./components/LoginViewForm";
 
@@ -26,7 +25,6 @@ const LoginView: FunctionComponent<LoginViewProps> = ({
 
   return (
     <div>
-      <DocumentTitle title="Login" />
       {locationState.from &&
         ((locationState.status === Http.Unauthorized && (
           <div>You are not authorized to view that page.</div>

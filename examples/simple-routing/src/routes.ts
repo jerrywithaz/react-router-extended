@@ -10,14 +10,18 @@ const routes: RouteConfig[] = [
     secure: false,
     path: "/",
     exact: true,
-    component: LoginView
+    component: LoginView,
+    title: "JerryWithAZ - Home",
+    a11yMessage: "You have navigated to the Home Page"
   },
   {
     key: "route-login-view",
     secure: false,
     path: "/login",
     component: LoginView,
-    exact: true
+    exact: true,
+    title: "JerryWithAZ - Login",
+    a11yMessage: "You have navigated to the Login Screen"
   },
   {
     key: "route-home-ui",
@@ -31,7 +35,9 @@ const routes: RouteConfig[] = [
         secure: true,
         path: "/home",
         component: HomeView,
-        exact: true
+        exact: true,
+        title: "JerryWithAZ - Home",
+        a11yMessage: "You have navigated to the Home Page"
       },
       {
         key: "route-home-user-view",
@@ -44,9 +50,13 @@ const routes: RouteConfig[] = [
             pathname: "/login",
             search: "?customRedirect=cool"
           };
-        }
+        },
+        title: "JerryWithAZ - User",
+        a11yMessage: "You have navigated to the User Page"
       }
-    ]
+    ],
+    title: "JerryWithAZ - Home",
+    a11yMessage: "You have navigated to the Home Page"
   }
 ];
 

@@ -993,34 +993,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/suited.suited-design-system.buttons.suited-button@1.0.4":
-  version "1.0.4"
-  resolved "https://node.bit.dev/suited.suited-design-system.buttons.suited-button/-/suited.suited-design-system.buttons.suited-button-1.0.4.tgz#eafd10d2d51a26911fccdeef9d2ed7aa420e1100"
-  integrity sha1-6v0Q0tUaJpEfzN7vnS7XqkIOEQA=
-  dependencies:
-    "@bit/suited.suited-design-system.constants.style-constants" "1.0.0"
-    "@bit/suited.suited-design-system.util.css-color-transforms" "1.0.1"
-
-"@bit/suited.suited-design-system.constants.style-constants@1.0.0":
-  version "1.0.0"
-  resolved "https://node.bit.dev/suited.suited-design-system.constants.style-constants/-/suited.suited-design-system.constants.style-constants-1.0.0.tgz#c47fc34a6686dbfa5e6927b98020eefa3506f94e"
-  integrity sha1-xH/DSmaG2/peaSe5gCDu+jUG+U4=
-
-"@bit/suited.suited-design-system.test-button@^0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/suited.suited-design-system.test-button/-/suited.suited-design-system.test-button-0.0.1.tgz#723bb1816743f095a3764d4d27d6a44bf9b27f87"
-  integrity sha1-cjuxgWdD8JWjdk1NJ9akS/myf4c=
-  dependencies:
-    "@bit/suited.suited-design-system.buttons.suited-button" "1.0.4"
-    "@testing-library/jest-dom" "^4.2.4"
-    "@testing-library/react" "^9.3.2"
-    jest-styled-components "^7.0.2"
-
-"@bit/suited.suited-design-system.util.css-color-transforms@1.0.1":
-  version "1.0.1"
-  resolved "https://node.bit.dev/suited.suited-design-system.util.css-color-transforms/-/suited.suited-design-system.util.css-color-transforms-1.0.1.tgz#6005a599e7f60084f1c34b114d7cfc1041f4a50a"
-  integrity sha1-YAWlmef2AITxw0sRTXz8EEH0pQo=
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1093,18 +1065,12 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@jerrywithaz/better-react-router-routing@^1.0.16":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.0.16.tgz#ab29a26e266e399b27b867c61b40cfe8b8d55395"
-  integrity sha512-GJbTQp/OSshFJqx4AH1HhAy+WKzIrDpi+zmSpz7ZlxLcUA237b3g5cfxMJoUCTNpnzc5pXkXbavo/KBoOvsdKQ==
+"@jerrywithaz/better-react-router-routing@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.1.1.tgz#adca9bb2ab241577b75fe58be6f64f183923be30"
+  integrity sha512-055B+ksM8b0yGsl7ejyTdFVBqXvLBLrqSzUyl930niUTR7fJIKo7bmBiII/Ukya8kasJhQhT5O9qb0uO0ZWTjA==
   dependencies:
     "@status/codes" latest
-    "@types/history" "4.7.5"
-    "@types/react" "16.9.34"
-    "@types/react-dom" "16.9.6"
-    "@types/react-redux" "7.1.7"
-    "@types/react-router" "5.1.5"
-    "@types/react-router-dom" "5.1.4"
     react "^16.12.0"
     react-dom "^16.12.0"
     react-router "5.1.2"
@@ -1544,7 +1510,7 @@
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.5.tgz#527d20ef68571a4af02ed74350164e7a67544860"
   integrity sha512-wLD/Aq2VggCJXSjxEwrMafIP51Z+13H78nXIX0ABEuIGhmB5sNGbR113MOKo+yfw+RDo1ZU3DM6yfnnRF/+ouw==
 
-"@types/hoist-non-react-statics@*", "@types/hoist-non-react-statics@^3.3.0":
+"@types/hoist-non-react-statics@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
   integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
@@ -1619,7 +1585,7 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@types/react-dom@*", "@types/react-dom@16.9.6", "@types/react-dom@^16.9.0":
+"@types/react-dom@*", "@types/react-dom@^16.9.0":
   version "16.9.6"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.6.tgz#9e7f83d90566521cc2083be2277c6712dcaf754c"
   integrity sha512-S6ihtlPMDotrlCJE9ST1fRmYrQNNwfgL61UB4I1W7M6kPulUKx9fXAleW5zpdIjUQ4fTaaog8uERezjsGUj9HQ==
@@ -1632,16 +1598,6 @@
   integrity sha512-oIUIbqZNN9vRnGKWHYbTVp/GyTqdaM5mfy1s4zsi6BYvHAaFOPZ32IrhIHno/A5XOv4wuGfE7g5fliDk/H0+/Q==
   dependencies:
     "@types/react" "*"
-
-"@types/react-redux@7.1.7":
-  version "7.1.7"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.7.tgz#12a0c529aba660696947384a059c5c6e08185c7a"
-  integrity sha512-U+WrzeFfI83+evZE2dkZ/oF/1vjIYgqrb5dGgedkqVV8HEfDFujNgWCwHL89TDuWKb47U0nTBT6PLGq4IIogWg==
-  dependencies:
-    "@types/hoist-non-react-statics" "^3.3.0"
-    "@types/react" "*"
-    hoist-non-react-statics "^3.3.0"
-    redux "^4.0.0"
 
 "@types/react-router-dom@5.1.4":
   version "5.1.4"
@@ -1660,7 +1616,7 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.9.34", "@types/react@^16.9.0":
+"@types/react@*", "@types/react@^16.9.0":
   version "16.9.34"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.34.tgz#f7d5e331c468f53affed17a8a4d488cd44ea9349"
   integrity sha512-8AJlYMOfPe1KGLKyHpflCg5z46n0b5DbRfqDksxBLBTUpB75ypDBAO9eCUcjNwE6LCUslwTz00yyG/X9gaVtow==
@@ -3627,7 +3583,7 @@ css.escape@^1.5.1:
   resolved "https://registry.yarnpkg.com/css.escape/-/css.escape-1.5.1.tgz#42e27d4fa04ae32f931a4b4d4191fa9cddee97cb"
   integrity sha1-QuJ9T6BK4y+TGktNQZH6nN3ul8s=
 
-css@^2.0.0, css@^2.2.3, css@^2.2.4:
+css@^2.0.0, css@^2.2.3:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
   integrity sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw==
@@ -6349,13 +6305,6 @@ jest-snapshot@^24.9.0:
     natural-compare "^1.4.0"
     pretty-format "^24.9.0"
     semver "^6.2.0"
-
-jest-styled-components@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-7.0.2.tgz#b7711871ea74a04491b12bad123fa35cc65a2a80"
-  integrity sha512-i1Qke8Jfgx0Why31q74ohVj9S2FmMLUE8bNRSoK4DgiurKkXG6HC4NPhcOLAz6VpVd9wXkPn81hOt4aAQedqsA==
-  dependencies:
-    css "^2.2.4"
 
 jest-util@^24.0.0, jest-util@^24.9.0:
   version "24.9.0"
@@ -9174,7 +9123,7 @@ redux-saga@1.1.3:
   dependencies:
     "@redux-saga/core" "^1.1.3"
 
-redux@4.0.5, redux@^4.0.0, redux@^4.0.4:
+redux@4.0.5, redux@^4.0.4:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
   integrity sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==

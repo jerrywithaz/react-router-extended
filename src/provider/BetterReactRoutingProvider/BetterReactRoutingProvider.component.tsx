@@ -13,6 +13,8 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
     children,
     initialA11yMessage,
     initialDocumentTitle,
+    pageNotFoundA11yMessage,
+    pageNotFoundDocumentTitle,
     redirectPath = "login" 
 }) => {
 
@@ -21,6 +23,8 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
 
     const value = {
         authenticated,
+        pageNotFoundA11yMessage,
+        pageNotFoundDocumentTitle,
         redirectPath,
         setA11yMessage,
         setDocumentTitle

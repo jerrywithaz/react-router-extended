@@ -1,7 +1,6 @@
 # Better React Router Routing
 
-Centralized and accessible routing for React Router. Better React Router Routing allows you to centralize your `react-router` routes in a configuration file and render nested routes with ease. It also provides an easy way to capture invalid routes and secure routes that require authentication. In 
-addition, better react router routing ensures that your routing is accessible to users using a screen reader.
+Centralized and accessible routing for React Router. Better React Router Routing allows you to centralize your `react-router` routes in a configuration file and render nested routes with ease. It also provides an easy way to capture invalid routes and secure routes that require authentication. In addition, better react router routing ensures that your routing is accessible to users using a screen reader.
 
 ## Installation
 
@@ -26,14 +25,18 @@ const routes: RouteConfig[] = [
     secure: false,
     path: "/",
     exact: true,
-    component: LoginView
+    component: LoginView,
+    a11yMessage: "You have navigated to the Home Page",
+    title: "JerryWithaZ - Home"
   },
   {
     key: "route-login-view",
     secure: false,
     path: "/login",
     component: LoginView,
-    exact: true
+    exact: true,
+    a11yMessage: "You have navigated to the Login Page",
+    title: "JerryWithaZ - Login"
   },
   {
     key: "route-home-ui",
@@ -47,16 +50,22 @@ const routes: RouteConfig[] = [
         secure: true,
         path: "/home",
         component: HomeView,
-        exact: true
+        exact: true,
+        a11yMessage: "You have navigated to the Home Page",
+        title: "JerryWithaZ - Home"
       },
       {
         key: "route-home-user-view",
         secure: true,
         path: "/home/user",
         component: UserView,
-        exact: true
+        exact: true,
+        a11yMessage: "You have navigated to the User Page",
+        title: "JerryWithaZ - User"
       }
-    ]
+    ],
+    a11yMessage: "You have navigated to the Home Page",
+    title: "JerryWithaZ - Home"
   }
 ];
 
@@ -96,7 +105,13 @@ const AppRoutes: FunctionComponent = () => {
     }
 
     return (
-        <BetterReactRoutingProvider authenticated={authenticated} redirectPath={redirectPath}>
+        <BetterReactRoutingProvider
+          authenticated={authenticated}
+          initialA11yMessage={"Welcome to JerryWithAZ"}
+          initialDocumentTitle={"JerryWithaZ"}
+          pageNotFoundA11yMessage={"This page could not be found"} //optional
+          pageNotFoundDocumentTitle={"JerryWithaZ - Page Not Found"} //optional
+          redirectPath={redirectPath}>
             <Capture404 FoundComponent={PageFound} NotFoundComponent={PageNotFound}/>
         </BetterReactRoutingProvider>
     );

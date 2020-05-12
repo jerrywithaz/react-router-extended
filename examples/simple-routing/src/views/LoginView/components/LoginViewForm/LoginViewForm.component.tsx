@@ -26,6 +26,7 @@ const LoginViewForm: FunctionComponent<LoginViewFormProps> = ({
         type="text"
         placeholder="username"
         onChange={onUsernameChange}
+        autoFocus={true}
         value={username}
       />
       <input
