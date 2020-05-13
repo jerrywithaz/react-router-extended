@@ -9,7 +9,7 @@ import { ScreenReaderOnlyProps } from './ScreenReaderOnly.types';
 const ScreenReaderOnly: FunctionComponent<ScreenReaderOnlyProps> = ({
     children,
     ...rest
-}) => {
+}): JSX.Element => {
     return (
         <Styled.ScreenReaderOnly {...rest}>
             {children}

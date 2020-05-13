@@ -29,6 +29,8 @@ const routes: RouteConfig[] = [
     path: "/home",
     component: Dashboard,
     exact: false,
+    title: "JerryWithAZ - Home",
+    a11yMessage: "You have navigated to the Home Page",
     routes: [
       {
         key: "route-home-view",
@@ -54,9 +56,7 @@ const routes: RouteConfig[] = [
         title: "JerryWithAZ - User",
         a11yMessage: "You have navigated to the User Page"
       }
-    ],
-    title: "JerryWithAZ - Home",
-    a11yMessage: "You have navigated to the Home Page"
+    ]
   }
 ];
 

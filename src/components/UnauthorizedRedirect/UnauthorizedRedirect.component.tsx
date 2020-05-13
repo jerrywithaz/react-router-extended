@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Redirect, useLocation } from "react-router";
+import { History } from 'history';
 import { UnauthorizedRedirectProps } from "./UnauthorizedRedirect.types";
 import useBetterReactRouting from "../../hooks/useBetterReactRouting";
 
@@ -7,11 +8,11 @@ const UnauthorizedRedirect: FunctionComponent<UnauthorizedRedirectProps> = ({
   componentRedirectPath,
   componentProps,
   reason
-}: UnauthorizedRedirectProps) => {
+}: UnauthorizedRedirectProps): JSX.Element => {
   const { redirectPath } = useBetterReactRouting();
   const location = useLocation();
 
-  function getLocationDescriptor() {
+  function getLocationDescriptor(): History.LocationDescriptor {
     if (componentRedirectPath) {
       return typeof componentRedirectPath === "function" ? componentRedirectPath(componentProps) : componentRedirectPath;
     }

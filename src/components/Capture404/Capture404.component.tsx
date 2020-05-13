@@ -10,7 +10,7 @@ import { Capture404Props } from "./Capture404.types";
 const Capture404: FunctionComponent<Capture404Props> = ({
   FoundComponent,
   NotFoundComponent
-}: Capture404Props) => {
+}: Capture404Props): JSX.Element => {
   const {
     state = {
       status: 200

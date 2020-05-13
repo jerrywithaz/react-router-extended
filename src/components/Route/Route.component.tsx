@@ -20,10 +20,10 @@ const Route: FunctionComponent<RouteProps> = ({
   redirectPath,
   title,
   ...restProps
-}: RouteProps) => {
+}: RouteProps): JSX.Element => {
   const { authenticated: isAuthenticated, setA11yMessage, setDocumentTitle } = useBetterReactRouting();
 
-  function render(routeProps: RouteComponentProps) {
+  function render(routeProps: RouteComponentProps): JSX.Element {
     if (isSecureRoute) {
       if (isAuthenticated) {
         return <Component {...routeProps} redirectPath={redirectPath} routes={routes} />;

@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { BetterReactRoutingContext } from "../../provider/BetterReactRoutingProvider";
+import { BetterReactRoutingContext, BetterReactRoutingContextValue } from "../../provider/BetterReactRoutingProvider";
 
-function useBetterReactRouting() {
+function useBetterReactRouting(): BetterReactRoutingContextValue {
     const context = useContext(BetterReactRoutingContext);
 
   if (context === undefined) {

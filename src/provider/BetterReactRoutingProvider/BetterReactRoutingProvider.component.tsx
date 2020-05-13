@@ -16,7 +16,7 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
     pageNotFoundA11yMessage,
     pageNotFoundDocumentTitle,
     redirectPath = "login" 
-}) => {
+}): JSX.Element => {
 
     const [ documentTitle, setDocumentTitle ] = useState<string>(initialDocumentTitle);
     const [ a11yMessage, setA11yMessage ] = useState<string>(initialA11yMessage);

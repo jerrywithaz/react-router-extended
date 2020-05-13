@@ -8,7 +8,7 @@ import { A11yMessageProps } from './A11yMessage.types';
  */
 const A11yMessage: FunctionComponent<A11yMessageProps> = ({
     message
-}) => {
+}): JSX.Element => {
     return (
         <ScreenReaderOnly 
             role="status" 

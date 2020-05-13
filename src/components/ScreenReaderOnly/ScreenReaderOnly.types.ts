@@ -1,3 +1,3 @@
 export type ScreenReaderOnlyProps = React.AriaAttributes & {
-    role?: string
+    role?: string;
 };

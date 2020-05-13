@@ -5,7 +5,7 @@ import useBetterReactRouting from "../../hooks/useBetterReactRouting";
 /**
  * Shows the 404 page when a visited url is not found.
  */
-const RouteNotFound = () => {
+const RouteNotFound = (): JSX.Element => {
   const { setA11yMessage, setDocumentTitle, pageNotFoundA11yMessage, pageNotFoundDocumentTitle } = useBetterReactRouting();
   const location = useLocation();
   const { pathname } = location;

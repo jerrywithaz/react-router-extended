@@ -1,6 +1,6 @@
 {
   "name": "@jerrywithaz/better-react-router-routing",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "keywords": [
     "react-router",
     "react",
@@ -14,26 +14,40 @@
     "react-dom": "^16.12.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
-    "styled-components": "5.1.0",
-    "typescript": "3.8.3"
+    "styled-components": "5.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
     "@types/history": "4.7.5",
+    "@types/jest": "^25.2.1",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
     "@types/react-redux": "7.1.7",
     "@types/react-router": "5.1.5",
     "@types/react-router-dom": "5.1.4",
     "@types/styled-components": "^5.1.0",
-    "typescript": "3.7.5"
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "babel-minify": "^0.5.1",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "jest": "^26.0.1",
+    "typescript": "3.8.3"
   },
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test"
+    "build": "rm -f -r dist && yarn build:types && yarn build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "lint": "eslint . --ext .ts,.tsx",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test",
+    "preversion": "yarn lint"
   },
   "browserslist": [
     ">0.2%",

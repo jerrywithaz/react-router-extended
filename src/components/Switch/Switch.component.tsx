@@ -10,11 +10,10 @@ import { SwitchProps } from "./Switch.types";
  * throw 404 errors to a user.
  */
 const Switch: FunctionComponent<SwitchProps> = ({
-  Animation = React.Fragment,
   canView = true,
   routes,
   ...switchProps
-}: SwitchProps) => {
+}: SwitchProps): JSX.Element => {
   return (
     <ReactRouterSwitch {...switchProps}>
       {canView && (
