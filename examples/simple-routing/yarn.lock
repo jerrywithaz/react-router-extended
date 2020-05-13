@@ -1065,10 +1065,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@jerrywithaz/better-react-router-routing@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.1.1.tgz#adca9bb2ab241577b75fe58be6f64f183923be30"
-  integrity sha512-055B+ksM8b0yGsl7ejyTdFVBqXvLBLrqSzUyl930niUTR7fJIKo7bmBiII/Ukya8kasJhQhT5O9qb0uO0ZWTjA==
+"@jerrywithaz/better-react-router-routing@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@jerrywithaz/better-react-router-routing/-/better-react-router-routing-1.1.3.tgz#a8aa6e3fd3604aa2733f206e6f2a76215b89be7c"
+  integrity sha512-wwTb7hQrHwwQux4wwk2gqtpqqx21vzCHvauCpHBE3fezfsVUKGbPFBasMASqqn12fjTHhU/u0+EpKMOz0k97CQ==
   dependencies:
     "@status/codes" latest
     react "^16.12.0"
@@ -1076,7 +1076,6 @@
     react-router "5.1.2"
     react-router-dom "5.1.2"
     styled-components "5.1.0"
-    typescript "3.8.3"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -10565,7 +10564,7 @@ typescript-tuple@^2.2.1:
   dependencies:
     typescript-compare "^0.0.2"
 
-typescript@3.8.3, typescript@~3.8.3:
+typescript@~3.8.3:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
   integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
