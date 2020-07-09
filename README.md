@@ -80,18 +80,10 @@ Better React Routing is unopnionated about your authentication protocol. The onl
 ```jsx
 import BetterReactRoutingProvider, { Switch, Capture404 } from '@jerrywithaz/better-react-router-routing';
 
-function useAuthenticated() {
+function useAuthenticated(): boolean {
   const authenticated = useSelector((state: AppState) => state.auth.authenticated);
   return authenticated;
 }
-
-const PageNotFound = () => {
-    return <div>Page not found</div>;
-};
-
-const PageFound = () => {
-    return <Switch routes={routes}/>
-};
 
 const AppRoutes: FunctionComponent = () => {
 
@@ -105,15 +97,13 @@ const AppRoutes: FunctionComponent = () => {
     }
 
     return (
-        <BetterReactRoutingProvider
-          authenticated={authenticated}
-          initialA11yMessage={"Welcome to JerryWithAZ"}
-          initialDocumentTitle={"JerryWithaZ"}
-          pageNotFoundA11yMessage={"This page could not be found"} //optional
-          pageNotFoundDocumentTitle={"JerryWithaZ - Page Not Found"} //optional
-          redirectPath={redirectPath}>
-            <Capture404 FoundComponent={PageFound} NotFoundComponent={PageNotFound}/>
-        </BetterReactRoutingProvider>
+      <BetterReactRoutingProvider
+        authenticated={authenticated}
+        initialA11yMessage={"Welcome to Koddi"}
+        initialDocumentTitle={"Koddi"}
+        routes={routes}
+        FoundComponent={() => <Switch routes={routes} />}
+        NotFoundComponent={() => <div>Page not found</div>}/>
     );
 }
 
