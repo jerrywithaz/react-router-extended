@@ -1,6 +1,7 @@
 import React from 'react';
 import renderTestApp from './../../../testUtils/renderTestApp';
 import RouteNotFound from './../RouteNotFound.component';
+import createRoutes from '../../../testUtils/routes';
 
 describe("<RouteNotFound/>", () => {
     it("should set the document title to the default page not found title when component rendered", () => {
@@ -31,10 +32,10 @@ function renderRouteNotFound(pageNotFoundA11yMessage?: string, pageNotFoundDocum
         initialA11yMessage: "",
         initialDocumentTitle: "",
         pageNotFoundA11yMessage,
-        pageNotFoundDocumentTitle
+        pageNotFoundDocumentTitle,
+        initialEntries: ["/unknown"],
+        routes: createRoutes()
     };
-    const result = renderTestApp(testAppProps, (
-        <RouteNotFound />
-    ));
+    const result = renderTestApp(testAppProps);
     return result;
 }

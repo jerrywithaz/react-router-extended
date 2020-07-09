@@ -12,11 +12,13 @@ export function renderScreenReaderOnly(props: Partial<ScreenReaderOnlyProps>) {
         </ScreenReaderOnly>
     ));
     const root = screen.getByText(text);
+    const styles = root.style;
 
     return {
         ...result,
         root,
-        text
+        text,
+        styles
     };
 
 };

@@ -1,6 +1,8 @@
+import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import useBetterReactRouting from '../useBetterReactRouting';
 import createTestAppWrapper from '../../../testUtils/createTestAppWrapper';
+import createRoutes from '../../../testUtils/routes';
 
 describe("Hooks - useBetterReactRouting", () => {
     it("should throw an error if hook is not used inside of a <BetterReactRoutingProvider/>", () => {
@@ -26,8 +28,10 @@ function renderUseBetterReactRoutingHook(authenticated: boolean) {
             initialA11yMessage: "",
             pageNotFoundA11yMessage: "Page Not Found",
             pageNotFoundDocumentTitle: "Login",
-            redirectPath: "/login"
-        }, children)
+            redirectPath: "/login",
+            routes: createRoutes(),
+            FoundComponent: () => <div>{children}</div>
+        })
     });
     
     return result;

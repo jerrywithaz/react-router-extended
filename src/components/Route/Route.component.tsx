@@ -23,7 +23,7 @@ const Route: FunctionComponent<RouteProps> = ({
 }: RouteProps): JSX.Element => {
   const { authenticated: isAuthenticated, setA11yMessage, setDocumentTitle } = useBetterReactRouting();
 
-  function render(routeProps: RouteComponentProps): JSX.Element {
+  function handlerRender(routeProps: RouteComponentProps): JSX.Element {
     if (isSecureRoute) {
       if (isAuthenticated) {
         return <Component {...routeProps} redirectPath={redirectPath} routes={routes} />;
@@ -45,7 +45,7 @@ const Route: FunctionComponent<RouteProps> = ({
     setDocumentTitle(title);
   }, []);
   
-  return <ReactRouterRoute {...restProps} render={render} />;
+  return <ReactRouterRoute {...restProps} render={handlerRender} />;
 };
 
 export default Route;
