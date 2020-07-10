@@ -3,9 +3,15 @@ import { Capture404ComponentProps } from "../../components/Capture404";
 
 export type BetterReactRoutingContextValue = {
     authenticated: boolean;
+    FallbackPermissionsComponent: React.ComponentType;
+    FallbackRolesComponent: React.ComponentType;
     pageNotFoundA11yMessage: string | undefined;
     pageNotFoundDocumentTitle: string | undefined;
+    permissions?: string[];
     redirectPath: RedirectPath;
+    requireAllPermissions: boolean,
+    requireAllRoles: boolean,
+    roles?: string[],
     setA11yMessage: (message: string) => void;
     setDocumentTitle: (message: string) => void;
 };
@@ -13,6 +19,10 @@ export type BetterReactRoutingContextValue = {
 export type BetterReactRoutingProviderProps = {
     /** Whether or not the user is currently authenicated. This allows you to use your own authenication protocol. */
     authenticated: boolean;
+    /** The component to be rendered when a user does not have sufficient permissions to access a route */
+    FallbackPermissionsComponent?: React.ComponentType;
+    /** The component to be rendered when a user does not have the required roles to access a route */
+    FallbackRolesComponent?: React.ComponentType;
     /** The Component to be rendered when a route is found i.e. you App's routes. */
     FoundComponent: React.ComponentType<Capture404ComponentProps>;
     /** The screen reader message that is read to a user when the app first renders. */
@@ -25,8 +35,16 @@ export type BetterReactRoutingProviderProps = {
     pageNotFoundA11yMessage?: string;
     /** The title of the document when your 404 page is rendered. */
     pageNotFoundDocumentTitle?: string;
+    /** A list of the current users permissions */
+    permissions?: string[];
     /** The url in which your app will be redirected to when a user is not authenticated i.e. /login. */
     redirectPath?: RedirectPath;
+    /** A global flag to ndicate whether or not a user always requires all of the permissions defined in `permissions`. If not, it will default to requiring the user to have at least 1 of the permissions */
+    requireAllPermissions?: boolean,
+    /** A global flag to ndicate whether or not a user always requires all of the roles defined in `roles`. If not, it will default to requiring the user to have at least 1 of the roles */
+    requireAllRoles?: boolean,
+    /** A list of the current users permissions */
+    roles?: string[];
     /** Your applications routes. */
     routes: RouteConfig[];
 };

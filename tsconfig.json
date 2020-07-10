@@ -1,6 +1,6 @@
 {
   "include": [
-    "./src/**/*.ts", "src/testUtils/renderTestApp/renderTestApp.tsx"
+    "./src/**/*.ts", "src/testUtils/renderTestApp/renderTestApp.tsx", "src/hooks/useBetterReactRouting/tests/useBetterReactRouting.test.tsx", "src/testUtils/routes/routes.tsx"
   ],
   "exclude": [
     "dist",

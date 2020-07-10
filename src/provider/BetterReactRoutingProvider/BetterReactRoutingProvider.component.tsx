@@ -20,9 +20,15 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
     initialDocumentTitle,
     pageNotFoundA11yMessage,
     pageNotFoundDocumentTitle,
-    redirectPath = "login",
+    redirectPath = "/login",
     NotFoundComponent = () => null,
-    FoundComponent
+    FoundComponent,
+    permissions,
+    roles,
+    requireAllPermissions = false,
+    requireAllRoles = false,
+    FallbackPermissionsComponent = () => null,
+    FallbackRolesComponent = () => null
 }): JSX.Element => {
 
     const [ documentTitle, setDocumentTitle ] = useState<string>(initialDocumentTitle);
@@ -34,7 +40,13 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
         pageNotFoundDocumentTitle,
         redirectPath,
         setA11yMessage,
-        setDocumentTitle
+        setDocumentTitle,
+        permissions,
+        roles,
+        requireAllPermissions,
+        requireAllRoles,
+        FallbackPermissionsComponent,
+        FallbackRolesComponent
     };
 
     return (

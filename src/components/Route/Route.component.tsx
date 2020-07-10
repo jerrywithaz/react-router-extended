@@ -1,12 +1,13 @@
 import React, { FunctionComponent, useEffect } from "react";
 import {
   Route as ReactRouterRoute,
-  RouteComponentProps
+  RouteComponentProps,
 } from "react-router-dom";
 import { Http } from "@status/codes";
 import { RouteProps } from "./Route.types";
 import UnauthorizedRedirect from "../UnauthorizedRedirect";
 import useBetterReactRouting from "../../hooks/useBetterReactRouting";
+import { checkPermissions, checkRoles } from "./Route.utils";
 
 /**
  * A wrapper around the react router `route` that providers
@@ -19,24 +20,73 @@ const Route: FunctionComponent<RouteProps> = ({
   routes,
   redirectPath,
   title,
+  permissions: routesRequiredPermissions = [],
+  roles: routesRequiredRoles = [],
+  requireAllPermissions = false,
+  requireAllRoles = false,
+  fallbackPermissionsComponent: FallbackPermissionsComponent,
+  fallbackRolesComponent: FallbackRolesComponent,
   ...restProps
 }: RouteProps): JSX.Element => {
-  const { authenticated: isAuthenticated, setA11yMessage, setDocumentTitle } = useBetterReactRouting();
+  const {
+    authenticated: isAuthenticated,
+    setA11yMessage,
+    setDocumentTitle,
+    permissions: usersPermissions = [],
+    roles: usersRoles = [],
+    requireAllPermissions: globalRequireAllPermissions,
+    requireAllRoles: globalRequireAllRoles,
+    FallbackPermissionsComponent: GlobalFallbackPermissionsComponent,
+    FallbackRolesComponent: GlobalFallbackRolesComponent
+  } = useBetterReactRouting();
 
   function handlerRender(routeProps: RouteComponentProps): JSX.Element {
+    const hasPermission = checkPermissions(
+      routesRequiredPermissions,
+      usersPermissions,
+      globalRequireAllPermissions || requireAllPermissions
+    );
+    const hasRoles = checkRoles(
+      routesRequiredRoles,
+      usersRoles,
+      globalRequireAllRoles || requireAllRoles
+    );
+
     if (isSecureRoute) {
       if (isAuthenticated) {
-        return <Component {...routeProps} redirectPath={redirectPath} routes={routes} />;
-      } else {
+        if (!hasPermission) {
+          return FallbackPermissionsComponent ? <FallbackPermissionsComponent /> : <GlobalFallbackPermissionsComponent/>;
+        }
+        else if (!hasRoles) {
+          return FallbackRolesComponent ? <FallbackRolesComponent />: <GlobalFallbackRolesComponent/>;
+        }
+        else {
+          return (
+            <Component
+              {...routeProps}
+              redirectPath={redirectPath}
+              routes={routes}
+            />
+          );
+        }
+      }
+      else {
         return (
-          <UnauthorizedRedirect 
-            componentProps={routeProps} 
-            componentRedirectPath={redirectPath} 
-            reason={Http.Unauthorized} />
+          <UnauthorizedRedirect
+            componentProps={routeProps}
+            componentRedirectPath={redirectPath}
+            reason={Http.Unauthorized}
+          />
         );
       }
     } else {
-      return <Component {...routeProps} redirectPath={redirectPath} routes={routes} />;
+      return (
+        <Component
+          {...routeProps}
+          redirectPath={redirectPath}
+          routes={routes}
+        />
+      );
     }
   }
 
@@ -44,7 +94,7 @@ const Route: FunctionComponent<RouteProps> = ({
     setA11yMessage(a11yMessage);
     setDocumentTitle(title);
   }, []);
-  
+
   return <ReactRouterRoute {...restProps} render={handlerRender} />;
 };
 

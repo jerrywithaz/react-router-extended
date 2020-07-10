@@ -179,3 +179,67 @@ const Dashboard = ({
 }
 
 ```
+
+## Securing Routes with Permissions or Roles
+
+Often times you only want users to be able to access a route only if they have certain roles or permissions.
+Better React Routing makes that easy to do.
+
+**NOTE** When a user has insufficient permissions or roles null is rendered by default. So, be sure to pass in a fallback component 
+by either using the fallback component on the `BetterReactRoutingProvider` or on the route itself.
+
+### Route Specific Routes
+
+You can set fallback components per route if you want to cusrtomize the error message.
+
+```tsx
+
+const routes: RouteConfig[] = [
+  {
+    key: "route-base-view",
+    secure: false,
+    path: "/admin",
+    exact: true,
+    component: LoginView,
+    permissions: ["admin.read", "admin.write"],
+    roles: ["admin"],
+    requireAllPermissions: true,
+    requireAllRoles: true,
+    fallbackPermissionsComponent: () => <div>You do not have permission.</div>,
+    fallbackRolesComponent: () => <div>You do not have the correct role.</div>,
+    a11yMessage: "You have navigated to the Home Page",
+    title: "JerryWithaZ - Home"
+  },
+  {
+    key: "route-login-view",
+    secure: false,
+    path: "/dev",
+    component: LoginView,
+    permissions: ["dev.read", "dev.write", "dev.delete"],
+    roles: ["dev"],
+    requireAllPermissions: false,
+    requireAllRoles: true,
+    exact: true,
+    a11yMessage: "You have navigated to the Login Page",
+    title: "JerryWithaZ - Login"
+  }
+];
+```
+
+### Global Fallback Components
+
+Setting the fallback components on the provider will be used as the default fallback components.
+The global fallback component will be overriden by route specific fallback components.
+
+```jsx
+  <BetterReactRoutingProvider
+    authenticated={authenticated}
+    initialA11yMessage={"Welcome to Koddi"}
+    initialDocumentTitle={"Koddi"}
+    routes={routes}
+    FoundComponent={() => <Switch routes={routes} />}
+    NotFoundComponent={() => <div>Page not found</div>}
+    FallbackPermissionsComponent={() => <div>You do not have permission</div>}
+    FallbackRolesComponent={() => <div>You do not have the correct role.</div>}/>
+);
+```

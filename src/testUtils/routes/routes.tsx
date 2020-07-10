@@ -1,18 +1,20 @@
 import React from 'react';
+import { RouteConfig } from '../../types';
 
 /**
  * Creates test routes.
- * @param secureHomePageRoute Whether or not the home page is secure.
+ * @param homepageRouteProps The Home page routes config, use this to override it's default config.
  */
-const createRoutes = (secureHomePageRoute?: boolean) => [
+const createRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
   {
     key: "route-base-view",
-    secure: secureHomePageRoute || false,
+    secure: false,
     path: "/",
     exact: true,
     component: () => <div>Home</div>,
     a11yMessage: "You have navigated to the Home Page",
     title: "Home",
+    ...(homepageRouteProps || {})
   },
   {
     key: "route-login-view",
