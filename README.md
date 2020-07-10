@@ -185,7 +185,7 @@ const Dashboard = ({
 Often times you only want users to be able to access a route only if they have certain roles or permissions.
 Better React Routing makes that easy to do.
 
-**NOTE** When a user has insufficient permissions or roles null is rendered by default. So, be sure to pass in a fallback component 
+**NOTE** When a user has insufficient permissions or roles null is rendered by default. So, be sure to pass in a fallback component
 by either using the fallback component on the `BetterReactRoutingProvider` or on the route itself.
 
 ### Setting Permissions and Roles
@@ -205,8 +205,9 @@ You will need to pass the current users permissions or roles to the `BetterReact
     FallbackPermissionsComponent={() => <div>You do not have permission</div>}
     FallbackRolesComponent={() => <div>You do not have the correct role.</div>}/>
 );
+```
 
-### Route Specific Routes
+### Route Specific Fallback Components
 
 You can set fallback components per route if you want to cusrtomize the error message.
 
