@@ -26,6 +26,7 @@ const Route: FunctionComponent<RouteProps> = ({
   requireAllRoles = false,
   fallbackPermissionsComponent: FallbackPermissionsComponent,
   fallbackRolesComponent: FallbackRolesComponent,
+  useComponentAsFallback = false,
   ...restProps
 }: RouteProps): JSX.Element => {
   const {
@@ -37,7 +38,7 @@ const Route: FunctionComponent<RouteProps> = ({
     requireAllPermissions: globalRequireAllPermissions,
     requireAllRoles: globalRequireAllRoles,
     FallbackPermissionsComponent: GlobalFallbackPermissionsComponent,
-    FallbackRolesComponent: GlobalFallbackRolesComponent
+    FallbackRolesComponent: GlobalFallbackRolesComponent,
   } = useBetterReactRouting();
 
   function handlerRender(routeProps: RouteComponentProps): JSX.Element {
@@ -55,12 +56,32 @@ const Route: FunctionComponent<RouteProps> = ({
     if (isSecureRoute) {
       if (isAuthenticated) {
         if (!hasPermission) {
-          return FallbackPermissionsComponent ? <FallbackPermissionsComponent /> : <GlobalFallbackPermissionsComponent/>;
-        }
-        else if (!hasRoles) {
-          return FallbackRolesComponent ? <FallbackRolesComponent />: <GlobalFallbackRolesComponent/>;
-        }
-        else {
+          return useComponentAsFallback ? (
+            <Component
+              {...routeProps}
+              insufficientPermissions={true}
+              redirectPath={redirectPath}
+              routes={routes}
+            />
+          ) : FallbackPermissionsComponent ? (
+            <FallbackPermissionsComponent />
+          ) : (
+            <GlobalFallbackPermissionsComponent />
+          );
+        } else if (!hasRoles) {
+          return useComponentAsFallback ? (
+            <Component
+              {...routeProps}
+              insufficientRoles={true}
+              redirectPath={redirectPath}
+              routes={routes}
+            />
+          ) : FallbackRolesComponent ? (
+            <FallbackRolesComponent />
+          ) : (
+            <GlobalFallbackRolesComponent />
+          );
+        } else {
           return (
             <Component
               {...routeProps}
@@ -69,8 +90,7 @@ const Route: FunctionComponent<RouteProps> = ({
             />
           );
         }
-      }
-      else {
+      } else {
         return (
           <UnauthorizedRedirect
             componentProps={routeProps}

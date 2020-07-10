@@ -1,6 +1,6 @@
 import React from 'react';
 import renderTestApp from './../../../testUtils/renderTestApp';
-import createRoutes from '../../../testUtils/routes';
+import createRoutes from '../../../testUtils/createTestRoutes';
 import { RouteConfig } from '../../../types';
 import { TestAppWrapperProps } from '../../../testUtils/createTestAppWrapper';
 

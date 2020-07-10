@@ -1,12 +1,5 @@
 {
-  "include": [
-    "./src/**/*.ts", "src/testUtils/renderTestApp/renderTestApp.tsx", "src/hooks/useBetterReactRouting/tests/useBetterReactRouting.test.tsx", "src/testUtils/routes/routes.tsx"
-  ],
-  "exclude": [
-    "dist",
-    "examples",
-    "node_modules"
-  ],
+  
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
@@ -30,5 +23,8 @@
     "declaration": true,
     "outDir": "./dist",
     "noEmit": false
-  }
+  },
+  "include": [
+    "src"
+  ],
 }

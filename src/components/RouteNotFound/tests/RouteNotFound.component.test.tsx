@@ -1,7 +1,7 @@
 import React from 'react';
 import renderTestApp from './../../../testUtils/renderTestApp';
 import RouteNotFound from './../RouteNotFound.component';
-import createRoutes from '../../../testUtils/routes';
+import createRoutes from '../../../testUtils/createTestRoutes';
 
 describe("<RouteNotFound/>", () => {
     it("should set the document title to the default page not found title when component rendered", () => {

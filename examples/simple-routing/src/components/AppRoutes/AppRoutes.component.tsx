@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import BetterReactRoutingProvider, { Switch, Capture404 } from '@jerrywithaz/better-react-router-routing';
+import BetterReactRoutingProvider, { Switch } from '@jerrywithaz/better-react-router-routing';
 import useAuthenticated from '../../hooks/useAuthenticated';
 import routes from '../../routes';
 import PageNotFound from '../PageNotFound';
@@ -17,12 +17,17 @@ const AppRoutes: FunctionComponent = () => {
 
     return (
         <BetterReactRoutingProvider 
-            initialA11yMessage={"Welcome to JerryWithAZ"} 
+            initialA11yMessage={"Welcome to JerryWithAZ"}
             initialDocumentTitle={"JerryWithAZ"}
-            authenticated={authenticated} 
-            redirectPath="/login">
-            <Capture404 FoundComponent={PageFound} NotFoundComponent={PageNotFound}/>
-        </BetterReactRoutingProvider>
+            authenticated={authenticated}
+            routes={routes}
+            redirectPath="/login"
+            FoundComponent={PageFound}
+            NotFoundComponent={PageNotFound}
+            permissions={["user.read", "user.write", "user.delete"]}
+            roles={["User"]}
+            FallbackPermissionsComponent={() => <div>You do not have permissions</div>}
+            FallbackRolesComponent={() => <div>You do not have the correct role.</div>}/>
     );
     
 }

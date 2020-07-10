@@ -2,7 +2,7 @@ import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import useBetterReactRouting from '../useBetterReactRouting';
 import createTestAppWrapper from '../../../testUtils/createTestAppWrapper';
-import createRoutes from '../../../testUtils/routes';
+import createRoutes from '../../../testUtils/createTestRoutes';
 
 describe("Hooks - useBetterReactRouting", () => {
     it("should throw an error if hook is not used inside of a <BetterReactRoutingProvider/>", () => {

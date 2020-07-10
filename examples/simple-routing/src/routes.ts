@@ -3,6 +3,7 @@ import LoginView from "./views/LoginView";
 import UserView from "./views/UserView";
 import Dashboard from "./components/Dashboard";
 import { RouteConfig } from "@jerrywithaz/better-react-router-routing";
+import AdminView from "./views/AdminView";
 
 const routes: RouteConfig[] = [
   {
@@ -57,7 +58,17 @@ const routes: RouteConfig[] = [
         a11yMessage: "You have navigated to the User Page"
       }
     ]
-  }
+  },
+  {
+    key: "route-admin-view",
+    secure: true,
+    path: "/admin",
+    component: AdminView,
+    exact: true,
+    title: "JerryWithAZ - Admin",
+    a11yMessage: "You have navigated to the Admin Screen",
+    roles: ["Admin"]
+  },
 ];
 
 export default routes;

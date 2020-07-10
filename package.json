@@ -1,6 +1,6 @@
 {
   "name": "@jerrywithaz/better-react-router-routing",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "keywords": [
     "react-router",
     "react",
@@ -38,7 +38,6 @@
     "@types/react-router-dom": "5.1.4",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
-    "babel-jest": "^26.0.1",
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
     "eslint": "^7.0.0",

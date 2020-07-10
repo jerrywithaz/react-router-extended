@@ -5,7 +5,7 @@ import { RouteConfig } from '../../types';
  * Creates test routes.
  * @param homepageRouteProps The Home page routes config, use this to override it's default config.
  */
-const createRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
+const createTestRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
   {
     key: "route-base-view",
     secure: false,
@@ -27,4 +27,4 @@ const createRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
   },
 ];
 
-export default createRoutes;
+export default createTestRoutes;

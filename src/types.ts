@@ -14,12 +14,14 @@ export type RouteConfigComponentProps<
 > = RouteComponentProps<Params, StaticContext, State> & {
   redirectPath?: RedirectPath;
   routes?: RouteConfig[];
+  insufficientPermissions?: boolean;
+  insufficientRoles?: boolean;
 };
 
 export type RouteConfigComponent<
   Params = any,
   State = History.LocationState
-> = React.ComponentType<RouteConfigComponentProps<Params, State>>;
+  > = React.ComponentType<RouteConfigComponentProps<Params, State>>;
 
 export type RouteConfig = Omit<
   RouteProps,
@@ -51,4 +53,6 @@ export type RouteConfig = Omit<
   roles?: string[],
   /** The document title to be set when this route renders.. */
   title: string;
+  /** Indicates whether or not to use the `component` as the fallback. If true, your component will recieve `insufficientPermissions` or `insufficientRoles` as true. */
+  useComponentAsFallback?: boolean;
 };
