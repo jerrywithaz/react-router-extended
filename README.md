@@ -188,6 +188,24 @@ Better React Routing makes that easy to do.
 **NOTE** When a user has insufficient permissions or roles null is rendered by default. So, be sure to pass in a fallback component 
 by either using the fallback component on the `BetterReactRoutingProvider` or on the route itself.
 
+### Setting Permissions and Roles
+
+You will need to pass the current users permissions or roles to the `BetterReactRoutingProvider`.
+
+```jsx
+  <BetterReactRoutingProvider
+    authenticated={authenticated}
+    initialA11yMessage={"Welcome to Koddi"}
+    initialDocumentTitle={"Koddi"}
+    routes={routes}
+    FoundComponent={() => <Switch routes={routes} />}
+    NotFoundComponent={() => <div>Page not found</div>}
+    permissions={["admin.read", "admin.write", "theme.write", "users.delete"]} // the current users permissions
+    roles={["Admin", "Developer"]} // the current users roles
+    FallbackPermissionsComponent={() => <div>You do not have permission</div>}
+    FallbackRolesComponent={() => <div>You do not have the correct role.</div>}/>
+);
+
 ### Route Specific Routes
 
 You can set fallback components per route if you want to cusrtomize the error message.
