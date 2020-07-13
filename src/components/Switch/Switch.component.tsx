@@ -11,12 +11,13 @@ import { SwitchProps } from "./Switch.types";
  */
 const Switch: FunctionComponent<SwitchProps> = ({
   canView = true,
-  routes,
+  routes = [],
+  children,
   ...switchProps
 }: SwitchProps): JSX.Element => {
   return (
     <ReactRouterSwitch {...switchProps}>
-      {canView && (
+      {canView && children ? children : (
         routes.map(route => (
           <Route {...route} />
         ))

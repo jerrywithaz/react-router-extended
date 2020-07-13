@@ -34,7 +34,8 @@ function renderRouteNotFound(pageNotFoundA11yMessage?: string, pageNotFoundDocum
         pageNotFoundA11yMessage,
         pageNotFoundDocumentTitle,
         initialEntries: ["/unknown"],
-        routes: createRoutes()
+        routes: createRoutes(),
+        redirectPathAfterLogin: "/admin"
     };
     const result = renderTestApp(testAppProps);
     return result;

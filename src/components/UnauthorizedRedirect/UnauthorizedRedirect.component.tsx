@@ -31,6 +31,7 @@ const UnauthorizedRedirect: FunctionComponent<UnauthorizedRedirectProps> = ({
     <Redirect
       to={{
         ...to,
+        search: `?redirect=${location.pathname}`,
         state: { 
           status: reason, 
           from: location.pathname 

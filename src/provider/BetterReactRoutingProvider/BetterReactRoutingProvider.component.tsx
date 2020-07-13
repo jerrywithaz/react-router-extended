@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { 
     BetterReactRoutingProviderProps, 
     BetterReactRoutingContextValue 
@@ -6,6 +6,8 @@ import {
 import A11yMessage from '../../components/A11yMessage';
 import DocumentTitle from '../../components/DocumentTitle';
 import Capture404 from '../../components/Capture404';
+import { createRoutesMap } from './BetterReactRoutingProvider.utils';
+import RedirectAfterLogin from '../../components/RedirectAfterLogin';
 
 const BetterReactRoutingContext = React.createContext<BetterReactRoutingContextValue | undefined>(undefined);
 
@@ -14,7 +16,7 @@ const BetterReactRoutingContext = React.createContext<BetterReactRoutingContextV
  * needs to render a accessible, reliable and consitent navigation. It automatically captures
  * 404 routes and makes it easy to update the document title.
  */
-const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderProps> = ({
+function BetterReactRoutingProvider({
     authenticated,
     initialA11yMessage,
     initialDocumentTitle,
@@ -24,16 +26,19 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
     NotFoundComponent = () => null,
     FoundComponent,
     permissions,
+    routes,
     roles,
     requireAllPermissions = false,
     requireAllRoles = false,
     FallbackPermissionsComponent = () => null,
-    FallbackRolesComponent = () => null
-}): JSX.Element => {
+    FallbackRolesComponent = () => null,
+    redirectPathAfterLogin
+}: BetterReactRoutingProviderProps): JSX.Element {
 
     const [ documentTitle, setDocumentTitle ] = useState<string>(initialDocumentTitle);
     const [ a11yMessage, setA11yMessage ] = useState<string>(initialA11yMessage);
-
+    const routesMap = createRoutesMap(routes);
+    
     const value = {
         authenticated,
         pageNotFoundA11yMessage,
@@ -42,11 +47,14 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
         setA11yMessage,
         setDocumentTitle,
         permissions,
+        routes,
         roles,
         requireAllPermissions,
         requireAllRoles,
+        routesMap,
         FallbackPermissionsComponent,
-        FallbackRolesComponent
+        FallbackRolesComponent,
+        redirectPathAfterLogin
     };
 
     return (
@@ -56,6 +64,7 @@ const BetterReactRoutingProvider: FunctionComponent<BetterReactRoutingProviderPr
             <Capture404
                 FoundComponent={FoundComponent}
                 NotFoundComponent={NotFoundComponent} />
+            <RedirectAfterLogin/>
         </BetterReactRoutingContext.Provider>
     );
 };

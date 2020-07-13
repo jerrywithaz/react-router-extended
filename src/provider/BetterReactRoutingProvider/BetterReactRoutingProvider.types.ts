@@ -1,4 +1,4 @@
-import { RedirectPath, RouteConfig } from "../../types";
+import { RedirectPath, RouteConfig, RedirectPathAfterLogin } from "../../types";
 import { Capture404ComponentProps } from "../../components/Capture404";
 
 export type BetterReactRoutingContextValue = {
@@ -9,9 +9,12 @@ export type BetterReactRoutingContextValue = {
     pageNotFoundDocumentTitle: string | undefined;
     permissions?: string[];
     redirectPath: RedirectPath;
+    redirectPathAfterLogin: RedirectPathAfterLogin;
     requireAllPermissions: boolean,
     requireAllRoles: boolean,
     roles?: string[],
+    routes: RouteConfig[],
+    routesMap: Record<string, RouteConfig>,
     setA11yMessage: (message: string) => void;
     setDocumentTitle: (message: string) => void;
 };
@@ -39,6 +42,8 @@ export type BetterReactRoutingProviderProps = {
     permissions?: string[];
     /** The url in which your app will be redirected to when a user is not authenticated i.e. /login. */
     redirectPath?: RedirectPath;
+    /** The url in which your app will be redirected to once a user has been authenticated */
+    redirectPathAfterLogin: RedirectPathAfterLogin;
     /** A global flag to ndicate whether or not a user always requires all of the permissions defined in `permissions`. If not, it will default to requiring the user to have at least 1 of the permissions */
     requireAllPermissions?: boolean,
     /** A global flag to ndicate whether or not a user always requires all of the roles defined in `roles`. If not, it will default to requiring the user to have at least 1 of the roles */

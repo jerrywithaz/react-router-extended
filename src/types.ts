@@ -6,6 +6,8 @@ export type RedirectPathFunction = (props: any) => History.LocationDescriptor;
 
 export type RedirectPath = RedirectPathFunction | History.LocationDescriptor;
 
+export type RedirectPathAfterLogin = History.LocationDescriptor;
+
 export type RouteTitleFunction = (props: any) => string;
 
 export type RouteConfigComponentProps<
@@ -36,7 +38,9 @@ export type RouteConfig = Omit<
   /** The component to be rendered when a user does not have the required roles to access a route */
   fallbackRolesComponent?: React.ComponentType;
   /** The route key */
-  key: string;
+    key: string;
+  /** The path of this route. */
+  path: Exclude<RouteProps["path"], undefined>;
   /** A list of permissions required for a user to access this route. */
   permissions?: string[],
   /** A custom redirect path for this route i.e. useful for when you want to redirect a user to a different route when they try to hit a certain route. */

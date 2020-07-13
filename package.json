@@ -1,6 +1,6 @@
 {
   "name": "@jerrywithaz/better-react-router-routing",
-  "version": "1.2.3",
+  "version": "1.3.4",
   "keywords": [
     "react-router",
     "react",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@status/codes": "latest",
     "lodash": "^4.17.19",
+    "query-string": "^6.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.2.0",
@@ -28,7 +29,6 @@
     "@testing-library/jest-dom": "^5.7.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/react-hooks": "^3.2.1",
-    "@types/history": "4.7.5",
     "@types/jest": "^25.2.1",
     "@types/lodash": "^4.14.157",
     "@types/react": "16.9.34",

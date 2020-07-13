@@ -30,7 +30,8 @@ function renderUseBetterReactRoutingHook(authenticated: boolean) {
             pageNotFoundDocumentTitle: "Login",
             redirectPath: "/login",
             routes: createRoutes(),
-            FoundComponent: () => <div>{children}</div>
+            FoundComponent: () => <div>{children}</div>,
+            redirectPathAfterLogin: "/admin"
         })
     });
     

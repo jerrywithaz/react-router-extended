@@ -25,6 +25,16 @@ const createTestRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
     a11yMessage: "You have navigated to the Login Page",
     title: "Login",
   },
+  {
+    key: "route-admin-view",
+    secure: true,
+    path: "/admin",
+    exact: true,
+    component: () => <div>Admin</div>,
+    a11yMessage: "You have navigated to the Admin Page",
+    title: "Admin",
+    ...(homepageRouteProps || {})
+  },
 ];
 
 export default createTestRoutes;
