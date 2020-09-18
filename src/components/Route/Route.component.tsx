@@ -41,7 +41,7 @@ const Route: FunctionComponent<RouteProps> = ({
     FallbackRolesComponent: GlobalFallbackRolesComponent,
   } = useBetterReactRouting();
 
-  function handlerRender(routeProps: RouteComponentProps): JSX.Element {
+  function handleRender(routeProps: RouteComponentProps): JSX.Element {
     const hasPermission = checkPermissions(
       routesRequiredPermissions,
       usersPermissions,
@@ -111,11 +111,11 @@ const Route: FunctionComponent<RouteProps> = ({
   }
 
   useEffect(() => {
-    setA11yMessage(a11yMessage);
+    if (a11yMessage) setA11yMessage(a11yMessage);
     setDocumentTitle(title);
-  }, []);
+  }, [a11yMessage, title]);
 
-  return <ReactRouterRoute {...restProps} render={handlerRender} />;
+  return <ReactRouterRoute {...restProps} render={handleRender} />;
 };
 
 export default Route;

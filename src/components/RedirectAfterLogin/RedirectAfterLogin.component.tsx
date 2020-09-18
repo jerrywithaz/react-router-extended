@@ -14,8 +14,6 @@ import { History } from "history";
 const RedirectAfterLogin: FunctionComponent = () => {
 
   const { authenticated: currentlyAuthenticated, redirectPathAfterLogin } = useBetterReactRouting();
-  const [initialAuthentication] = useState<boolean>(currentlyAuthenticated);
-  const [authenticatedAsync, setAuthenticatedAsync] = useState<boolean>(false);
   const [redirectPath, setRedirectPath] = useState<History.LocationDescriptor>(redirectPathAfterLogin);
   const { state } = useLocation<{from?: string}>();
 
@@ -23,12 +21,9 @@ const RedirectAfterLogin: FunctionComponent = () => {
     if (state?.from) {
       setRedirectPath(state.from);
     }
-    if (initialAuthentication === false) {
-      setAuthenticatedAsync(currentlyAuthenticated);
-    }
-  }, [currentlyAuthenticated, initialAuthentication, state]);
+  }, [currentlyAuthenticated, state]);
 
-  return authenticatedAsync ? <Redirect to={redirectPath} /> : null;
+  return currentlyAuthenticated ? <Redirect to={redirectPath} /> : null;
   
 }
 

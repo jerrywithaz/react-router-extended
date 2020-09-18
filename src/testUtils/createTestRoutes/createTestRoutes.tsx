@@ -3,9 +3,9 @@ import { RouteConfig } from '../../types';
 
 /**
  * Creates test routes.
- * @param homepageRouteProps The Home page routes config, use this to override it's default config.
+ * @param routeProps Route config props to override all routes except the login route, use this to override it's default config.
  */
-const createTestRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
+const createTestRoutes = (routeProps?: Partial<RouteConfig>) => [
   {
     key: "route-base-view",
     secure: false,
@@ -14,7 +14,7 @@ const createTestRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
     component: () => <div>Home</div>,
     a11yMessage: "You have navigated to the Home Page",
     title: "Home",
-    ...(homepageRouteProps || {})
+    ...(routeProps || {})
   },
   {
     key: "route-login-view",
@@ -33,7 +33,7 @@ const createTestRoutes = (homepageRouteProps?: Partial<RouteConfig>) => [
     component: () => <div>Admin</div>,
     a11yMessage: "You have navigated to the Admin Page",
     title: "Admin",
-    ...(homepageRouteProps || {})
+    ...(routeProps || {})
   },
 ];
 

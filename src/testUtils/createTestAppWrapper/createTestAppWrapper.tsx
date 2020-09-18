@@ -32,6 +32,8 @@ function createTestAppWrapper({
       getUserConfirmation={getUserConfirmation}
     >
       <BetterReactRoutingProvider
+        FallbackPermissionsComponent={() => <div>Invalid permissions</div>}
+        FallbackRolesComponent={() => <div>Invalid roles</div>}
         {...betterReactRoutingProviderProps}
         FoundComponent={FoundComponent || DefaultFoundComponent}
         routes={routes}

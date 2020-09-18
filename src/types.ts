@@ -12,10 +12,11 @@ export type RouteTitleFunction = (props: any) => string;
 
 export type RouteConfigComponentProps<
   Params = any,
-  State = History.LocationState
+  State = History.LocationState,
+  PassthroughRouteConfigProps extends Record<string, unknown> = Record<string, unknown>
 > = RouteComponentProps<Params, StaticContext, State> & {
   redirectPath?: RedirectPath;
-  routes?: RouteConfig[];
+  routes?: RouteConfig<PassthroughRouteConfigProps>[];
   insufficientPermissions?: boolean;
   insufficientRoles?: boolean;
 };
@@ -23,14 +24,14 @@ export type RouteConfigComponentProps<
 export type RouteConfigComponent<
   Params = any,
   State = History.LocationState
-  > = React.ComponentType<RouteConfigComponentProps<Params, State>>;
+  > = React.ComponentType<RouteConfigComponentProps<Params, State, any>>;
 
-export type RouteConfig = Omit<
+export type RouteConfig<PassthroughProps extends Record<string, unknown> = Record<string, unknown>> = Omit<
   RouteProps,
   "render" | "children" | "component" | "exact"
   > & {
   /** The screen reader message describing this route that will be read allow to screen reader users. */
-  a11yMessage: string;
+  a11yMessage?: string;
   exact: boolean;
   component: RouteConfigComponent<any, any>;
   /** The component to be rendered when a user does not have sufficient permissions to access a route */
@@ -59,4 +60,4 @@ export type RouteConfig = Omit<
   title: string;
   /** Indicates whether or not to use the `component` as the fallback. If true, your component will recieve `insufficientPermissions` or `insufficientRoles` as true. */
   useComponentAsFallback?: boolean;
-};
+} & PassthroughProps;

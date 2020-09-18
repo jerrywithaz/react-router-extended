@@ -18,20 +18,6 @@ describe("<RedirectAfterLogin/>", () => {
 
   });
 
-  it("should not redirect if authentication is initially set to true.", () => {
-
-    const { rerender } = render(renderRedirectAfterLogin(true, { secure: true }, undefined, ["/admin"]));
-
-    expect(document.title).toBe("Admin");
-
-    act(() => {
-      rerender(renderRedirectAfterLogin(true, { secure: true }, undefined, ["/admin"]));
-    });
-
-    expect(document.title).toBe("Admin");
-
-  });
-  
 });
 
 function renderRedirectAfterLogin(

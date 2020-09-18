@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { useLocation } from "react-router";
 import { Http } from "@status/codes";
 import { Capture404Props } from "./Capture404.types";
+import useBetterReactRouting from "../../hooks/useBetterReactRouting";
 
 /**
  * Captures http 404 errors thrown by the `RouteNotFound` component
@@ -9,8 +10,10 @@ import { Capture404Props } from "./Capture404.types";
  */
 const Capture404: FunctionComponent<Capture404Props> = ({
   FoundComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  authenticating
 }: Capture404Props): JSX.Element => {
+  const { routes } = useBetterReactRouting();
   const {
     state = {
       status: 200
@@ -18,9 +21,9 @@ const Capture404: FunctionComponent<Capture404Props> = ({
   } = useLocation();
 
   if (state.status === Http.NotFound) {
-    return <NotFoundComponent is404={true}/>;
+    return <NotFoundComponent is404={true} authenticating={authenticating} routes={routes} />;
   } else {
-    return <FoundComponent is404={false}/>;
+    return <FoundComponent is404={false} authenticating={authenticating} routes={routes} />;
   }
 };
 

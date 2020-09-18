@@ -3,6 +3,8 @@ import { Capture404ComponentProps } from "../../components/Capture404";
 
 export type BetterReactRoutingContextValue = {
     authenticated: boolean;
+    authenticating?: boolean;
+    is404: boolean;
     FallbackPermissionsComponent: React.ComponentType;
     FallbackRolesComponent: React.ComponentType;
     pageNotFoundA11yMessage: string | undefined;
@@ -22,6 +24,8 @@ export type BetterReactRoutingContextValue = {
 export type BetterReactRoutingProviderProps = {
     /** Whether or not the user is currently authenicated. This allows you to use your own authenication protocol. */
     authenticated: boolean;
+    /** Whether or not the application is currently authenticating the user */
+    authenticating?: boolean;
     /** The component to be rendered when a user does not have sufficient permissions to access a route */
     FallbackPermissionsComponent?: React.ComponentType;
     /** The component to be rendered when a user does not have the required roles to access a route */

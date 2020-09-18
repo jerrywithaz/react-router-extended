@@ -8,6 +8,8 @@ import DocumentTitle from '../../components/DocumentTitle';
 import Capture404 from '../../components/Capture404';
 import { createRoutesMap } from './BetterReactRoutingProvider.utils';
 import RedirectAfterLogin from '../../components/RedirectAfterLogin';
+import { useLocation } from 'react-router';
+import { Http } from '@status/codes';
 
 const BetterReactRoutingContext = React.createContext<BetterReactRoutingContextValue | undefined>(undefined);
 
@@ -18,6 +20,7 @@ const BetterReactRoutingContext = React.createContext<BetterReactRoutingContextV
  */
 function BetterReactRoutingProvider({
     authenticated,
+    authenticating,
     initialA11yMessage,
     initialDocumentTitle,
     pageNotFoundA11yMessage,
@@ -38,9 +41,17 @@ function BetterReactRoutingProvider({
     const [ documentTitle, setDocumentTitle ] = useState<string>(initialDocumentTitle);
     const [ a11yMessage, setA11yMessage ] = useState<string>(initialA11yMessage);
     const routesMap = createRoutesMap(routes);
-    
+    const {
+        state = {
+          status: 200
+        }
+    } = useLocation();
+    const is404 = state.status === Http.NotFound;
+
     const value = {
         authenticated,
+        authenticating,
+        is404,
         pageNotFoundA11yMessage,
         pageNotFoundDocumentTitle,
         redirectPath,
@@ -60,11 +71,12 @@ function BetterReactRoutingProvider({
     return (
         <BetterReactRoutingContext.Provider value={value}>
             <DocumentTitle title={documentTitle}/>
-            <A11yMessage message={a11yMessage}/>
+            <A11yMessage message={a11yMessage} />
             <Capture404
+                authenticating={authenticating}
                 FoundComponent={FoundComponent}
                 NotFoundComponent={NotFoundComponent} />
-            <RedirectAfterLogin/>
+            <RedirectAfterLogin />
         </BetterReactRoutingContext.Provider>
     );
 };
