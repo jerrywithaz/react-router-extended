@@ -2,25 +2,26 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Http } from '@status/codes';
 import {
-    BetterReactRoutingProviderProps,
-    BetterReactRoutingContextValue,
-} from './BetterReactRoutingProvider.types';
+    ReactRouterExtendedProviderProps,
+    ReactRouterExtendedContextValue,
+} from './ReactRouterExtendedProvider.types';
 import A11yMessage from '../../components/A11yMessage';
 import DocumentTitle from '../../components/DocumentTitle';
 import Capture404 from '../../components/Capture404';
-import { createRoutesMap } from './BetterReactRoutingProvider.utils';
+import { createRoutesMap } from './ReactRouterExtendedProvider.utils';
 import RedirectAfterLogin from '../../components/RedirectAfterLogin';
 
-const BetterReactRoutingContext = React.createContext<
-    BetterReactRoutingContextValue | undefined
+const ReactRouterExtendedContext = React.createContext<
+    ReactRouterExtendedContextValue | undefined
 >(undefined);
 
 /**
- * The `BetterReactRoutingProvider` provides your application tree with everything it
+ * The `ReactRouterExtendedProvider` provides your application tree the extended react
+ * router functionality such as 404 erros, permission/role based routing and everything it
  * needs to render a accessible, reliable and consitent navigation. It automatically captures
  * 404 routes and makes it easy to update the document title.
  */
-function BetterReactRoutingProvider({
+function ReactRouterExtendedProvider({
     authenticated,
     authenticating,
     initialA11yMessage,
@@ -38,7 +39,7 @@ function BetterReactRoutingProvider({
     FallbackPermissionsComponent = () => null,
     FallbackRolesComponent = () => null,
     redirectPathAfterLogin,
-}: BetterReactRoutingProviderProps): JSX.Element {
+}: ReactRouterExtendedProviderProps): JSX.Element {
     const [documentTitle, setDocumentTitle] = useState<string>(
         initialDocumentTitle
     );
@@ -72,7 +73,7 @@ function BetterReactRoutingProvider({
     };
 
     return (
-        <BetterReactRoutingContext.Provider value={value}>
+        <ReactRouterExtendedContext.Provider value={value}>
             <DocumentTitle title={documentTitle} />
             <A11yMessage message={a11yMessage} />
             <Capture404
@@ -81,9 +82,9 @@ function BetterReactRoutingProvider({
                 NotFoundComponent={NotFoundComponent}
             />
             <RedirectAfterLogin />
-        </BetterReactRoutingContext.Provider>
+        </ReactRouterExtendedContext.Provider>
     );
 }
 
-export { BetterReactRoutingContext };
-export default BetterReactRoutingProvider;
+export { ReactRouterExtendedContext };
+export default ReactRouterExtendedProvider;

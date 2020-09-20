@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
-import useBetterReactRouting from '../../hooks/useBetterReactRouting';
+import useReactRouterExtended from '../../hooks/useReactRouterExtended';
 
 /**
  * Shows the 404 page when a visited url is not found.
@@ -11,7 +11,7 @@ const RouteNotFound = (): JSX.Element => {
         setDocumentTitle,
         pageNotFoundA11yMessage,
         pageNotFoundDocumentTitle,
-    } = useBetterReactRouting();
+    } = useReactRouterExtended();
     const location = useLocation();
     const { pathname } = location;
 

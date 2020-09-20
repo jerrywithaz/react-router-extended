@@ -1,17 +1,17 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { MemoryRouterProps } from 'react-router';
-import BetterReactRoutingProvider, {
-    BetterReactRoutingProviderProps,
-} from '../../provider/BetterReactRoutingProvider';
+import ReactRouterExtendedProvider, {
+    ReactRouterExtendedProviderProps,
+} from '../../provider/ReactRouterExtendedProvider';
 import Switch from '../../components/Switch';
 
 export type TestAppWrapperProps = Omit<
-    BetterReactRoutingProviderProps,
+    ReactRouterExtendedProviderProps,
     'FoundComponent'
 > &
     MemoryRouterProps & {
-        FoundComponent?: BetterReactRoutingProviderProps['FoundComponent'];
+        FoundComponent?: ReactRouterExtendedProviderProps['FoundComponent'];
     };
 
 function createTestAppWrapper({
@@ -21,7 +21,7 @@ function createTestAppWrapper({
     getUserConfirmation,
     FoundComponent,
     routes,
-    ...betterReactRoutingProviderProps
+    ...ReactRouterExtendedProviderProps
 }: TestAppWrapperProps): JSX.Element {
     const DefaultFoundComponent = () => <Switch routes={routes} />;
     return (
@@ -31,12 +31,12 @@ function createTestAppWrapper({
             keyLength={keyLength}
             getUserConfirmation={getUserConfirmation}
         >
-            <BetterReactRoutingProvider
+            <ReactRouterExtendedProvider
                 FallbackPermissionsComponent={() => (
                     <div>Invalid permissions</div>
                 )}
                 FallbackRolesComponent={() => <div>Invalid roles</div>}
-                {...betterReactRoutingProviderProps}
+                {...ReactRouterExtendedProviderProps}
                 FoundComponent={FoundComponent || DefaultFoundComponent}
                 routes={routes}
             />

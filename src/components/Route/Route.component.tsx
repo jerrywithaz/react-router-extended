@@ -6,7 +6,7 @@ import {
 import { Http } from '@status/codes';
 import { RouteProps } from './Route.types';
 import UnauthorizedRedirect from '../UnauthorizedRedirect';
-import useBetterReactRouting from '../../hooks/useBetterReactRouting';
+import useReactRouterExtended from '../../hooks/useReactRouterExtended';
 import { checkPermissions, checkRoles } from './Route.utils';
 import { RouteConfigComponentProps } from '../../types';
 
@@ -40,7 +40,7 @@ const Route: FunctionComponent<RouteProps> = ({
         requireAllRoles: globalRequireAllRoles,
         FallbackPermissionsComponent: GlobalFallbackPermissionsComponent,
         FallbackRolesComponent: GlobalFallbackRolesComponent,
-    } = useBetterReactRouting();
+    } = useReactRouterExtended();
 
     const renderRouteComponent = useCallback(
         (
@@ -65,64 +65,85 @@ const Route: FunctionComponent<RouteProps> = ({
         [useComponentAsFallback, redirectPath, routes]
     );
 
-    function handleRender(routeProps: RouteComponentProps): JSX.Element {
-        const hasPermission = checkPermissions(
-            routesRequiredPermissions,
-            usersPermissions,
-            globalRequireAllPermissions || requireAllPermissions
-        );
-        const hasRoles = checkRoles(
-            routesRequiredRoles,
-            usersRoles,
-            globalRequireAllRoles || requireAllRoles
-        );
+    const handleRender = useCallback(
+        (routeProps: RouteComponentProps) => {
+            const hasPermission = checkPermissions(
+                routesRequiredPermissions,
+                usersPermissions,
+                globalRequireAllPermissions || requireAllPermissions
+            );
+            const hasRoles = checkRoles(
+                routesRequiredRoles,
+                usersRoles,
+                globalRequireAllRoles || requireAllRoles
+            );
 
-        if (isSecureRoute) {
-            if (isAuthenticated) {
-                if (!hasPermission) {
-                    return renderRouteComponent(
-                        {
-                            ...routeProps,
-                            insufficientPermissions: true,
-                        },
-                        FallbackPermissionsComponent,
-                        GlobalFallbackPermissionsComponent
-                    );
-                }
-                if (!hasRoles) {
-                    return renderRouteComponent(
-                        {
-                            ...routeProps,
-                            insufficientRoles: true,
-                        },
-                        FallbackRolesComponent,
-                        GlobalFallbackRolesComponent
+            if (isSecureRoute) {
+                if (isAuthenticated) {
+                    if (!hasPermission) {
+                        return renderRouteComponent(
+                            {
+                                ...routeProps,
+                                insufficientPermissions: true,
+                            },
+                            FallbackPermissionsComponent,
+                            GlobalFallbackPermissionsComponent
+                        );
+                    }
+                    if (!hasRoles) {
+                        return renderRouteComponent(
+                            {
+                                ...routeProps,
+                                insufficientRoles: true,
+                            },
+                            FallbackRolesComponent,
+                            GlobalFallbackRolesComponent
+                        );
+                    }
+                    return (
+                        <Component
+                            {...routeProps}
+                            redirectPath={redirectPath}
+                            routes={routes}
+                        />
                     );
                 }
                 return (
-                    <Component
-                        {...routeProps}
-                        redirectPath={redirectPath}
-                        routes={routes}
+                    <UnauthorizedRedirect
+                        componentProps={routeProps}
+                        componentRedirectPath={redirectPath}
+                        reason={Http.Unauthorized}
                     />
                 );
             }
             return (
-                <UnauthorizedRedirect
-                    componentProps={routeProps}
-                    componentRedirectPath={redirectPath}
-                    reason={Http.Unauthorized}
+                <Component
+                    {...routeProps}
+                    redirectPath={redirectPath}
+                    routes={routes}
                 />
             );
-        }
-        return (
-            <Component
-                {...routeProps}
-                redirectPath={redirectPath}
-                routes={routes}
-            />
-        );
-    }
+        },
+        [
+            FallbackPermissionsComponent,
+            FallbackRolesComponent,
+            GlobalFallbackPermissionsComponent,
+            GlobalFallbackRolesComponent,
+            globalRequireAllPermissions,
+            globalRequireAllRoles,
+            isAuthenticated,
+            isSecureRoute,
+            redirectPath,
+            renderRouteComponent,
+            requireAllPermissions,
+            requireAllRoles,
+            routes,
+            routesRequiredPermissions,
+            routesRequiredRoles,
+            usersPermissions,
+            usersRoles,
+        ]
+    );
 
     useEffect(() => {
         if (a11yMessage) setA11yMessage(a11yMessage);

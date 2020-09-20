@@ -1,6 +1,6 @@
 {
-    "name": "@jerrywithaz/better-react-router-routing",
-    "version": "1.4.0",
+    "name": "react-router-extended",
+    "version": "1.0.0",
     "keywords": [
         "react-router",
         "react",
@@ -88,12 +88,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jerrywithaz/better-react-router-routing.git"
+        "url": "git+https://github.com/jerrywithaz/react-router-extended.git"
     },
     "author": "Zerry Hogan",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/jerrywithaz/better-react-router-routing/issues"
+        "url": "https://github.com/jerrywithaz/react-router-extended/issues"
     },
     "homepage": "/",
     "description": "",

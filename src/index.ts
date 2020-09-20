@@ -7,6 +7,6 @@ export {
     checkRoles,
 } from './components/Route';
 export type { RouteConfigComponentProps, RouteConfig } from './types';
-export { default as useBetterReactRouting } from './hooks/useBetterReactRouting';
+export { default as useReactRouterExtended } from './hooks/useReactRouterExtended';
 export type { Capture404ComponentProps } from './components/Capture404';
-export { default } from './provider/BetterReactRoutingProvider';
+export { default } from './provider/ReactRouterExtendedProvider';

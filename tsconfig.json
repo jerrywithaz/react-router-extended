@@ -25,7 +25,6 @@
     "noEmit": false
   },
   "include": [
-    "src",
-    ".eslintrc.js"
+    "src"
   ]
 }

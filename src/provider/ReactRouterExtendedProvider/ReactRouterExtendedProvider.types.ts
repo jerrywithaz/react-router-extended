@@ -1,7 +1,7 @@
 import { RedirectPath, RouteConfig, RedirectPathAfterLogin } from '../../types';
 import { Capture404ComponentProps } from '../../components/Capture404';
 
-export type BetterReactRoutingContextValue = {
+export type ReactRouterExtendedContextValue = {
     authenticated: boolean;
     authenticating?: boolean;
     is404: boolean;
@@ -21,7 +21,7 @@ export type BetterReactRoutingContextValue = {
     setDocumentTitle: (message: string) => void;
 };
 
-export type BetterReactRoutingProviderProps = {
+export type ReactRouterExtendedProviderProps = {
     /** Whether or not the user is currently authenicated. This allows you to use your own authenication protocol. */
     authenticated: boolean;
     /** Whether or not the application is currently authenticating the user */

@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { History } from 'history';
-import useBetterReactRouting from '../../hooks/useBetterReactRouting';
+import useReactRouterExtended from '../../hooks/useReactRouterExtended';
 
 /**
  * Takes care of redirecting a user to the main page of
@@ -15,7 +15,7 @@ const RedirectAfterLogin: FunctionComponent = () => {
     const {
         authenticated: currentlyAuthenticated,
         redirectPathAfterLogin,
-    } = useBetterReactRouting();
+    } = useReactRouterExtended();
     const [redirectPath, setRedirectPath] = useState<
         History.LocationDescriptor
     >(redirectPathAfterLogin);

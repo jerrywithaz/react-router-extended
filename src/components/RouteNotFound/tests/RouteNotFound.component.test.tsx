@@ -13,13 +13,13 @@ describe('<RouteNotFound/>', () => {
             queryByText('This page could not be found.')
         ).toBeInTheDocument();
     });
-    describe('when `pageNotFoundDocumentTitle` is set in <BetterReactRoutingProvider/>', () => {
+    describe('when `pageNotFoundDocumentTitle` is set in <ReactRouterExtendedProvider/>', () => {
         it('should set the document title to the `pageNotFoundDocumentTitle` when rendered', async () => {
             await renderRouteNotFound('', 'Test - Page Not Found');
             expect(document.title).toBe('Test - Page Not Found');
         });
     });
-    describe('when `pageNotFoundA11yMessage` is set in <BetterReactRoutingProvider/>', () => {
+    describe('when `pageNotFoundA11yMessage` is set in <ReactRouterExtendedProvider/>', () => {
         it('should display `pageNotFoundA11yMessage` message when rendered', async () => {
             const { queryByText } = await renderRouteNotFound(
                 '404 Error - Page Not Found'

@@ -2,16 +2,16 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
-import useBetterReactRouting from '../useBetterReactRouting';
+import useReactRouterExtended from '../useReactRouterExtended';
 import createTestAppWrapper from '../../../testUtils/createTestAppWrapper';
 import createRoutes from '../../../testUtils/createTestRoutes';
 
-describe('Hooks - useBetterReactRouting', () => {
-    it('should throw an error if hook is not used inside of a <BetterReactRoutingProvider/>', () => {
-        expect(() => useBetterReactRouting()).toThrowError();
+describe('Hooks - useReactRouterExtended', () => {
+    it('should throw an error if hook is not used inside of a <ReactRouterExtendedProvider/>', () => {
+        expect(() => useReactRouterExtended()).toThrowError();
     });
-    it('should return context value from <BetterReactRoutingProvider/>', () => {
-        const { result } = renderUseBetterReactRoutingHook(true);
+    it('should return context value from <ReactRouterExtendedProvider/>', () => {
+        const { result } = renderUseReactRouterExtendedHook(true);
         expect(result.current.authenticated).toEqual(true);
         expect(result.current.pageNotFoundA11yMessage).toEqual(
             'Page Not Found'
@@ -23,8 +23,8 @@ describe('Hooks - useBetterReactRouting', () => {
     });
 });
 
-function renderUseBetterReactRoutingHook(authenticated: boolean) {
-    const result = renderHook(() => useBetterReactRouting(), {
+function renderUseReactRouterExtendedHook(authenticated: boolean) {
+    const result = renderHook(() => useReactRouterExtended(), {
         wrapper: ({ children }) =>
             createTestAppWrapper({
                 authenticated,
