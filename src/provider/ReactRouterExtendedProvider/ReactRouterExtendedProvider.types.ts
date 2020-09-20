@@ -1,9 +1,11 @@
 import { RedirectPath, RouteConfig, RedirectPathAfterLogin } from '../../types';
 import { Capture404ComponentProps } from '../../components/Capture404';
+import { BreadcrumbLinkProps } from '../../components/Breadcrumbs';
 
 export type ReactRouterExtendedContextValue = {
     authenticated: boolean;
     authenticating?: boolean;
+    BreadcrumbLinkComponent: React.ComponentType<BreadcrumbLinkProps>;
     is404: boolean;
     FallbackPermissionsComponent: React.ComponentType;
     FallbackRolesComponent: React.ComponentType;
@@ -26,6 +28,8 @@ export type ReactRouterExtendedProviderProps = {
     authenticated: boolean;
     /** Whether or not the application is currently authenticating the user */
     authenticating?: boolean;
+    /** The component to render for a link in the breadcrumb component. This allows you to customize the ui of your breadcrumbs. */
+    BreadcrumbLinkComponent?: React.ComponentType<BreadcrumbLinkProps>;
     /** The component to be rendered when a user does not have sufficient permissions to access a route */
     FallbackPermissionsComponent?: React.ComponentType;
     /** The component to be rendered when a user does not have the required roles to access a route */

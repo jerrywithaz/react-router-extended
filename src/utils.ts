@@ -1,4 +1,4 @@
-import { RouteConfig } from '../../types';
+import { RouteConfig } from './types';
 
 const walkRoutes = (
     routes: RouteConfig[],

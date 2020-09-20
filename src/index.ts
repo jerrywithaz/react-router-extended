@@ -1,6 +1,8 @@
 export { default as Capture404 } from './components/Capture404';
 export { default as UnauthorizedRedirect } from './components/UnauthorizedRedirect';
 export { default as Switch } from './components/Switch';
+export { default as Breadcrumbs } from './components/Breadcrumbs';
+export type { BreadcrumbLinkProps } from './components/Breadcrumbs';
 export {
     default as Route,
     checkPermissions,

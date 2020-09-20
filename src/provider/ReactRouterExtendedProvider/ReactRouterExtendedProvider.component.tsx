@@ -8,8 +8,9 @@ import {
 import A11yMessage from '../../components/A11yMessage';
 import DocumentTitle from '../../components/DocumentTitle';
 import Capture404 from '../../components/Capture404';
-import { createRoutesMap } from './ReactRouterExtendedProvider.utils';
 import RedirectAfterLogin from '../../components/RedirectAfterLogin';
+import { BreadcrumbLink } from '../../components/Breadcrumbs';
+import { createRoutesMap } from '../../utils';
 
 const ReactRouterExtendedContext = React.createContext<
     ReactRouterExtendedContextValue | undefined
@@ -24,6 +25,7 @@ const ReactRouterExtendedContext = React.createContext<
 function ReactRouterExtendedProvider({
     authenticated,
     authenticating,
+    BreadcrumbLinkComponent = BreadcrumbLink,
     initialA11yMessage,
     initialDocumentTitle,
     pageNotFoundA11yMessage,
@@ -55,6 +57,7 @@ function ReactRouterExtendedProvider({
     const value = {
         authenticated,
         authenticating,
+        BreadcrumbLinkComponent,
         is404,
         pageNotFoundA11yMessage,
         pageNotFoundDocumentTitle,

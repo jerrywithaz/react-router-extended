@@ -34,6 +34,10 @@ export type RouteConfig<
 > = Omit<RouteProps, 'render' | 'children' | 'component' | 'exact'> & {
     /** The screen reader message describing this route that will be read allow to screen reader users. */
     a11yMessage?: string;
+    /** A flag indicating whether or not a breadcrumb should be rendered as a link or just text. */
+    breadcrumbIsLink?: boolean;
+    /** The title of the breadcrumb if you are using breadcrumbs. */
+    breadcrumbTitle?: string;
     exact: boolean;
     component: RouteConfigComponent<any, any>;
     /** The component to be rendered when a user does not have sufficient permissions to access a route */
