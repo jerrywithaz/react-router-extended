@@ -16,7 +16,7 @@ const ReactRouterExtendedContext = React.createContext<
 >(undefined);
 
 /**
- * The `ReactRouterExtendedProvider` provides your application tree the extended react
+ * The `ReactRouterExtendedProvider` provides your application with the extended react
  * router functionality such as 404 erros, permission/role based routing and everything it
  * needs to render a accessible, reliable and consitent navigation. It automatically captures
  * 404 routes and makes it easy to update the document title.
