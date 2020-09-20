@@ -1,116 +1,130 @@
 {
-  "name": "@jerrywithaz/better-react-router-routing",
-  "version": "1.3.11",
-  "keywords": [
-    "react-router",
-    "react",
-    "routing"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "@status/codes": "latest",
-    "lodash": "^4.17.19",
-    "query-string": "^6.13.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-typescript": "^7.9.0",
-    "@testing-library/dom": "^7.5.2",
-    "@testing-library/jest-dom": "^5.7.0",
-    "@testing-library/react": "^10.0.4",
-    "@testing-library/react-hooks": "^3.2.1",
-    "@types/jest": "^25.2.1",
-    "@types/lodash": "^4.14.157",
-    "@types/react": "16.9.34",
-    "@types/react-dom": "16.9.6",
-    "@types/react-redux": "7.1.7",
-    "@types/react-router": "5.1.5",
-    "@types/react-router-dom": "5.1.4",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "babel-minify": "^0.5.1",
-    "babel-preset-minify": "^0.5.1",
-    "eslint": "^7.0.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
-    "jest": "^26.0.1",
-    "jest-dom": "^4.0.0",
-    "react-test-renderer": "^16.13.1",
-    "ts-jest": "^25.5.1",
-    "typescript": "3.8.3"
-  },
-  "peerDependencies": {
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
-  },
-  "scripts": {
-    "build": "rm -f -r dist && yarn build:types && yarn build:js",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "tsc",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watchAll",
-    "lint": "eslint . --ext .ts,.tsx",
-    "prepare": "yarn build",
-    "prepublishOnly": "yarn test",
-    "preversion": "yarn lint"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jerrywithaz/better-react-router-routing.git"
-  },
-  "author": "Zerry Hogan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jerrywithaz/better-react-router-routing/issues"
-  },
-  "homepage": "/",
-  "description": "",
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/index.{js,jsx,ts,tsx}"
+    "name": "@jerrywithaz/better-react-router-routing",
+    "version": "1.4.0",
+    "keywords": [
+        "react-router",
+        "react",
+        "routing"
     ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/internals/tests/setup.ts"
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
     ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "testPathIgnorePatterns": [
-      "dist"
-    ],
-    "preset": "ts-jest",
-    "globals": {
-      "ts-jest": {
-        "babelConfig": true
-      }
+    "dependencies": {
+        "@status/codes": "latest",
+        "history": "4.10.1",
+        "lodash": "^4.17.19",
+        "query-string": "^6.13.1",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0"
     },
-    "transform": {
-      "^.+\\.(ts|tsx)?$": "ts-jest",
-      "^.+\\.(js|jsx)$": "babel-jest"
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.6",
+        "@babel/preset-typescript": "^7.9.0",
+        "@testing-library/dom": "^7.5.2",
+        "@testing-library/jest-dom": "^5.7.0",
+        "@testing-library/react": "^10.0.4",
+        "@testing-library/react-hooks": "^3.2.1",
+        "@types/history": "4.7.8",
+        "@types/jest": "^25.2.1",
+        "@types/lodash": "^4.14.157",
+        "@types/prettier": "^2.1.1",
+        "@types/react": "16.9.34",
+        "@types/react-dom": "16.9.6",
+        "@types/react-redux": "7.1.7",
+        "@types/react-router": "5.1.5",
+        "@types/react-router-dom": "5.1.4",
+        "@typescript-eslint/eslint-plugin": "^3.9.1",
+        "@typescript-eslint/parser": "^3.9.1",
+        "babel-minify": "^0.5.1",
+        "babel-preset-minify": "^0.5.1",
+        "eslint": "^7.7.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-import-resolver-alias": "^1.1.2",
+        "eslint-import-resolver-typescript": "^2.2.1",
+        "eslint-import-resolver-webpack": "^0.12.2",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-css-modules": "^2.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.1",
+        "eslint-plugin-react-hooks": "^4.1.0",
+        "jest": "^26.0.1",
+        "jest-dom": "^4.0.0",
+        "prettier": "2.0.5",
+        "react-test-renderer": "^16.13.1",
+        "ts-jest": "^25.5.1",
+        "typescript": "3.8.3"
+    },
+    "peerDependencies": {
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0"
+    },
+    "scripts": {
+        "build": "rm -f -r dist && yarn build:types && yarn build:js",
+        "build:types": "tsc --emitDeclarationOnly",
+        "build:js": "tsc",
+        "format": "prettier --write src/**/*.ts{,x}",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watchAll",
+        "prepare": "yarn build",
+        "prepublishOnly": "yarn test",
+        "preversion": "yarn lint"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jerrywithaz/better-react-router-routing.git"
+    },
+    "author": "Zerry Hogan",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jerrywithaz/better-react-router-routing/issues"
+    },
+    "homepage": "/",
+    "description": "",
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!src/**/index.{js,jsx,ts,tsx}"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/internals/tests/setup.ts"
+        ],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ],
+        "testPathIgnorePatterns": [
+            "dist"
+        ],
+        "preset": "ts-jest",
+        "globals": {
+            "ts-jest": {
+                "babelConfig": true
+            }
+        },
+        "transform": {
+            "^.+\\.(ts|tsx)?$": "ts-jest",
+            "^.+\\.(js|jsx)$": "babel-jest"
+        }
     }
-  }
 }

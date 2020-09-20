@@ -1,45 +1,47 @@
-import React from "react";
-import { MemoryRouter } from "react-router-dom";
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouterProps } from 'react-router';
 import BetterReactRoutingProvider, {
-  BetterReactRoutingProviderProps,
-} from "./../../provider/BetterReactRoutingProvider";
-import { MemoryRouterProps } from "react-router";
-import Switch from "../../components/Switch";
+    BetterReactRoutingProviderProps,
+} from '../../provider/BetterReactRoutingProvider';
+import Switch from '../../components/Switch';
 
 export type TestAppWrapperProps = Omit<
-  BetterReactRoutingProviderProps,
-  "FoundComponent"
+    BetterReactRoutingProviderProps,
+    'FoundComponent'
 > &
-  MemoryRouterProps & {
-    FoundComponent?: BetterReactRoutingProviderProps["FoundComponent"];
-  };
+    MemoryRouterProps & {
+        FoundComponent?: BetterReactRoutingProviderProps['FoundComponent'];
+    };
 
 function createTestAppWrapper({
-  initialEntries,
-  initialIndex,
-  keyLength,
-  getUserConfirmation,
-  FoundComponent,
-  routes,
-  ...betterReactRoutingProviderProps
+    initialEntries,
+    initialIndex,
+    keyLength,
+    getUserConfirmation,
+    FoundComponent,
+    routes,
+    ...betterReactRoutingProviderProps
 }: TestAppWrapperProps): JSX.Element {
-  const DefaultFoundComponent = () => <Switch routes={routes} />;
-  return (
-    <MemoryRouter
-      initialEntries={initialEntries}
-      initialIndex={initialIndex}
-      keyLength={keyLength}
-      getUserConfirmation={getUserConfirmation}
-    >
-      <BetterReactRoutingProvider
-        FallbackPermissionsComponent={() => <div>Invalid permissions</div>}
-        FallbackRolesComponent={() => <div>Invalid roles</div>}
-        {...betterReactRoutingProviderProps}
-        FoundComponent={FoundComponent || DefaultFoundComponent}
-        routes={routes}
-      />
-    </MemoryRouter>
-  );
+    const DefaultFoundComponent = () => <Switch routes={routes} />;
+    return (
+        <MemoryRouter
+            initialEntries={initialEntries}
+            initialIndex={initialIndex}
+            keyLength={keyLength}
+            getUserConfirmation={getUserConfirmation}
+        >
+            <BetterReactRoutingProvider
+                FallbackPermissionsComponent={() => (
+                    <div>Invalid permissions</div>
+                )}
+                FallbackRolesComponent={() => <div>Invalid roles</div>}
+                {...betterReactRoutingProviderProps}
+                FoundComponent={FoundComponent || DefaultFoundComponent}
+                routes={routes}
+            />
+        </MemoryRouter>
+    );
 }
 
 export default createTestAppWrapper;

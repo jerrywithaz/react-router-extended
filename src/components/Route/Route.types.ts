@@ -1,3 +1,3 @@
-import { RouteConfig } from "../../types";
+import { RouteConfig } from '../../types';
 
-export type RouteProps = RouteConfig & {};
+export type RouteProps = RouteConfig;

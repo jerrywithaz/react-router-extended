@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ScreenReaderOnly from '../ScreenReaderOnly.component';
 import { ScreenReaderOnlyProps } from '../ScreenReaderOnly.types';
 
-export function renderScreenReaderOnly(props: Partial<ScreenReaderOnlyProps>) {
-
-    const text = "Screen reader only text.";
-    const result = render((
-        <ScreenReaderOnly {...props}>
-            {text}
-        </ScreenReaderOnly>
-    ));
+export function renderScreenReaderOnly(
+    props: Partial<ScreenReaderOnlyProps>
+): any {
+    const text = 'Screen reader only text.';
+    const result = render(
+        <ScreenReaderOnly {...props}>{text}</ScreenReaderOnly>
+    );
     const root = screen.getByText(text);
     const styles = root.style;
 
@@ -18,7 +18,6 @@ export function renderScreenReaderOnly(props: Partial<ScreenReaderOnlyProps>) {
         ...result,
         root,
         text,
-        styles
+        styles,
     };
-
-};
+}

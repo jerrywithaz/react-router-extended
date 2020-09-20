@@ -1,1 +1,1 @@
-export { default } from "./RouteNotFound.component";
+export { default } from './RouteNotFound.component';

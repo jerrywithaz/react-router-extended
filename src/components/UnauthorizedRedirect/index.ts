@@ -1,1 +1,1 @@
-export { default } from "./UnauthorizedRedirect.component";
+export { default } from './UnauthorizedRedirect.component';

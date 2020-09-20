@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import ScreenReaderOnly from './../ScreenReaderOnly';
+import ScreenReaderOnly from '../ScreenReaderOnly';
 import { A11yMessageProps } from './A11yMessage.types';
 
 /**
@@ -7,16 +7,13 @@ import { A11yMessageProps } from './A11yMessage.types';
  * whenever the message changes.
  */
 const A11yMessage: FunctionComponent<A11yMessageProps> = ({
-    message
+    message,
 }): JSX.Element => {
     return (
-        <ScreenReaderOnly 
-            role="status" 
-            aria-live="polite" 
-            aria-atomic={true}>
-                {message}
+        <ScreenReaderOnly role="status" aria-live="polite" aria-atomic>
+            {message}
         </ScreenReaderOnly>
     );
-}
+};
 
 export default A11yMessage;

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { 
-    BetterReactRoutingProviderProps, 
-    BetterReactRoutingContextValue 
+import { useLocation } from 'react-router';
+import { Http } from '@status/codes';
+import {
+    BetterReactRoutingProviderProps,
+    BetterReactRoutingContextValue,
 } from './BetterReactRoutingProvider.types';
 import A11yMessage from '../../components/A11yMessage';
 import DocumentTitle from '../../components/DocumentTitle';
 import Capture404 from '../../components/Capture404';
 import { createRoutesMap } from './BetterReactRoutingProvider.utils';
 import RedirectAfterLogin from '../../components/RedirectAfterLogin';
-import { useLocation } from 'react-router';
-import { Http } from '@status/codes';
 
-const BetterReactRoutingContext = React.createContext<BetterReactRoutingContextValue | undefined>(undefined);
+const BetterReactRoutingContext = React.createContext<
+    BetterReactRoutingContextValue | undefined
+>(undefined);
 
 /**
  * The `BetterReactRoutingProvider` provides your application tree with everything it
@@ -25,7 +27,7 @@ function BetterReactRoutingProvider({
     initialDocumentTitle,
     pageNotFoundA11yMessage,
     pageNotFoundDocumentTitle,
-    redirectPath = "/login",
+    redirectPath = '/login',
     NotFoundComponent = () => null,
     FoundComponent,
     permissions,
@@ -35,16 +37,17 @@ function BetterReactRoutingProvider({
     requireAllRoles = false,
     FallbackPermissionsComponent = () => null,
     FallbackRolesComponent = () => null,
-    redirectPathAfterLogin
+    redirectPathAfterLogin,
 }: BetterReactRoutingProviderProps): JSX.Element {
-
-    const [ documentTitle, setDocumentTitle ] = useState<string>(initialDocumentTitle);
-    const [ a11yMessage, setA11yMessage ] = useState<string>(initialA11yMessage);
+    const [documentTitle, setDocumentTitle] = useState<string>(
+        initialDocumentTitle
+    );
+    const [a11yMessage, setA11yMessage] = useState<string>(initialA11yMessage);
     const routesMap = createRoutesMap(routes);
     const {
         state = {
-          status: 200
-        }
+            status: 200,
+        },
     } = useLocation();
     const is404 = state.status === Http.NotFound;
 
@@ -65,21 +68,22 @@ function BetterReactRoutingProvider({
         routesMap,
         FallbackPermissionsComponent,
         FallbackRolesComponent,
-        redirectPathAfterLogin
+        redirectPathAfterLogin,
     };
 
     return (
         <BetterReactRoutingContext.Provider value={value}>
-            <DocumentTitle title={documentTitle}/>
+            <DocumentTitle title={documentTitle} />
             <A11yMessage message={a11yMessage} />
             <Capture404
                 authenticating={authenticating}
                 FoundComponent={FoundComponent}
-                NotFoundComponent={NotFoundComponent} />
+                NotFoundComponent={NotFoundComponent}
+            />
             <RedirectAfterLogin />
         </BetterReactRoutingContext.Provider>
     );
-};
+}
 
 export { BetterReactRoutingContext };
 export default BetterReactRoutingProvider;
