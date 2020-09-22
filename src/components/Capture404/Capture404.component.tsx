@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { useLocation } from 'react-router';
 import { Http } from '@status/codes';
 import { Capture404Props } from './Capture404.types';
-import useReactRouterExtended from '../../hooks/useReactRouterExtended';
 
 /**
  * Captures http 404 errors thrown by the `RouteNotFound` component
@@ -12,8 +11,8 @@ const Capture404: FunctionComponent<Capture404Props> = ({
     FoundComponent,
     NotFoundComponent,
     authenticating,
+    routes,
 }: Capture404Props): JSX.Element => {
-    const { routes } = useReactRouterExtended();
     const {
         state = {
             status: 200,

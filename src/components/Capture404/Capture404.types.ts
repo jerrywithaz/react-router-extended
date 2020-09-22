@@ -10,4 +10,5 @@ export type Capture404Props = {
     authenticating?: boolean;
     FoundComponent: React.ComponentType<Capture404ComponentProps>;
     NotFoundComponent: React.ComponentType<Capture404ComponentProps>;
+    routes: RouteConfig[];
 };

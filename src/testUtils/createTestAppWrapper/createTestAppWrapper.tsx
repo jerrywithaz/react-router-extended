@@ -21,7 +21,7 @@ function createTestAppWrapper({
     getUserConfirmation,
     FoundComponent,
     routes,
-    ...ReactRouterExtendedProviderProps
+    ...props
 }: TestAppWrapperProps): JSX.Element {
     const DefaultFoundComponent = () => <Switch routes={routes} />;
     return (
@@ -36,7 +36,7 @@ function createTestAppWrapper({
                     <div>Invalid permissions</div>
                 )}
                 FallbackRolesComponent={() => <div>Invalid roles</div>}
-                {...ReactRouterExtendedProviderProps}
+                {...props}
                 FoundComponent={FoundComponent || DefaultFoundComponent}
                 routes={routes}
             />

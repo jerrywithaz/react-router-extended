@@ -9,7 +9,7 @@ import A11yMessage from '../../components/A11yMessage';
 import DocumentTitle from '../../components/DocumentTitle';
 import Capture404 from '../../components/Capture404';
 import RedirectAfterLogin from '../../components/RedirectAfterLogin';
-import { BreadcrumbLink } from '../../components/Breadcrumbs';
+import BreadcrumbLink from '../../components/Breadcrumbs/components/BreadcrumbLink';
 import { createRoutesMap } from '../../utils';
 
 const ReactRouterExtendedContext = React.createContext<
@@ -83,8 +83,12 @@ function ReactRouterExtendedProvider({
                 authenticating={authenticating}
                 FoundComponent={FoundComponent}
                 NotFoundComponent={NotFoundComponent}
+                routes={routes}
             />
-            <RedirectAfterLogin />
+            <RedirectAfterLogin
+                authenticated={authenticated}
+                redirectPathAfterLogin={redirectPathAfterLogin}
+            />
         </ReactRouterExtendedContext.Provider>
     );
 }
