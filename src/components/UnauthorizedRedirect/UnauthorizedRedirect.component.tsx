@@ -11,6 +11,10 @@ const UnauthorizedRedirect: FunctionComponent<UnauthorizedRedirectProps> = ({
 }: UnauthorizedRedirectProps): JSX.Element => {
     const { redirectPath } = useReactRouterExtended();
     const location = useLocation();
+    const additionalSearchParams = location.search.length
+        ? `&${location.search.slice(1)}`
+        : '';
+    const search = `?redirect=${location.pathname}${additionalSearchParams}`;
 
     function getLocationDescriptor(): History.LocationDescriptor {
         if (componentRedirectPath) {
@@ -37,10 +41,10 @@ const UnauthorizedRedirect: FunctionComponent<UnauthorizedRedirectProps> = ({
         <Redirect
             to={{
                 ...to,
-                search: `?redirect=${location.pathname}`,
+                search,
                 state: {
                     status: reason,
-                    from: location.pathname,
+                    from: location.pathname + location.search,
                 },
             }}
         />

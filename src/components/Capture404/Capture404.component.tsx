@@ -17,7 +17,7 @@ const Capture404: FunctionComponent<Capture404Props> = ({
         state = {
             status: 200,
         },
-    } = useLocation();
+    } = useLocation<{ status: number }>();
 
     if (state.status === Http.NotFound) {
         return (

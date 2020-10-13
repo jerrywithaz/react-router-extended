@@ -51,7 +51,7 @@ function ReactRouterExtendedProvider({
         state = {
             status: 200,
         },
-    } = useLocation();
+    } = useLocation<{ status: number }>();
     const is404 = state.status === Http.NotFound;
 
     const value = {

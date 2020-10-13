@@ -28,6 +28,7 @@ const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({
                 to={match.url}
                 isExact={match.isExact}
                 isLink={breadcrumbIsLink}
+                route={route}
             />
             <Route
                 path={`${match.url}/:path`}

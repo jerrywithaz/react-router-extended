@@ -6,7 +6,10 @@ import { RouteConfig } from '../../types';
  * Creates test routes.
  * @param routeProps Route config props to override all routes except the login route, use this to override it's default config.
  */
-const createTestRoutes = (routeProps?: Partial<RouteConfig>): RouteConfig[] => [
+const createTestRoutes = (
+    routeProps?: Partial<RouteConfig>,
+    usePropsForLogin?: boolean
+): RouteConfig[] => [
     {
         key: 'route-base-view',
         secure: false,
@@ -25,6 +28,7 @@ const createTestRoutes = (routeProps?: Partial<RouteConfig>): RouteConfig[] => [
         component: () => <div>Login</div>,
         a11yMessage: 'You have navigated to the Login Page',
         title: 'Login',
+        ...(usePropsForLogin ? routeProps : {}),
     },
     {
         key: 'route-admin-view',
