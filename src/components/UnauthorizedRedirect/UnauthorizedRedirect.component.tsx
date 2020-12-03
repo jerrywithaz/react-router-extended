@@ -4,6 +4,10 @@ import { History } from 'history';
 import { UnauthorizedRedirectProps } from './UnauthorizedRedirect.types';
 import useReactRouterExtended from '../../hooks/useReactRouterExtended';
 
+/**
+ * The `UnauthorizedRedirect` handles redirecting the user back to
+ * the `redirectAfterLogin` path.
+ */
 const UnauthorizedRedirect: FunctionComponent<UnauthorizedRedirectProps> = ({
     componentRedirectPath,
     componentProps,

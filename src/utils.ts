@@ -17,7 +17,7 @@ const walkRoutes = (
 
 export const createRoutesMap = (
     routes: RouteConfig[]
-): Record<string, RouteConfig<Record<string, unknown>>> => {
+): Record<string, RouteConfig> => {
     const map: Record<string, RouteConfig> = {};
 
     walkRoutes(routes, (route: RouteConfig) => {

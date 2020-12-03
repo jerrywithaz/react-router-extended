@@ -7,7 +7,9 @@ const BreadcrumbLink = ({
     isLink,
     name,
     to,
+    isDisabled,
 }: BreadcrumbLinkProps): JSX.Element | null => {
+    if (isDisabled) return null;
     return (
         <>
             {isLink ? <Link to={to}>{name}</Link> : <span>{name}</span>}

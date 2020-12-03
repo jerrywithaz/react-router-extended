@@ -8,7 +8,11 @@ export {
     checkPermissions,
     checkRoles,
 } from './components/Route';
-export type { RouteConfigComponentProps, RouteConfig } from './types';
+export type {
+    RouteConfigComponentProps,
+    RouteConfig,
+    RouteConfigComponent,
+} from './types';
 export { default as useReactRouterExtended } from './hooks/useReactRouterExtended';
 export type { Capture404ComponentProps } from './components/Capture404';
 export { default } from './provider/ReactRouterExtendedProvider';

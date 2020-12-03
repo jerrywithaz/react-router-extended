@@ -6,6 +6,7 @@ export type BreadcrumbLinkProps<
     to: string;
     isExact: boolean;
     isLink: boolean;
+    isDisabled: boolean;
     name: string;
     route: RouteConfig<PassthroughProps>;
 };

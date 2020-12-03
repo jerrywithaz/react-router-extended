@@ -44,7 +44,7 @@ const Route: FunctionComponent<RouteProps> = ({
 
     const renderRouteComponent = useCallback(
         (
-            componentProps: RouteConfigComponentProps<any, any, any>,
+            componentProps: RouteConfigComponentProps<any, any>,
             LocalFallbackComponent: React.ComponentType | undefined,
             GlobalFallbackComponent: React.ComponentType
         ) => {
@@ -83,6 +83,7 @@ const Route: FunctionComponent<RouteProps> = ({
                     if (!hasPermission) {
                         return renderRouteComponent(
                             {
+                                componentProps: {},
                                 ...routeProps,
                                 insufficientPermissions: true,
                             },
@@ -93,6 +94,7 @@ const Route: FunctionComponent<RouteProps> = ({
                     if (!hasRoles) {
                         return renderRouteComponent(
                             {
+                                componentProps: {},
                                 ...routeProps,
                                 insufficientRoles: true,
                             },
@@ -102,6 +104,7 @@ const Route: FunctionComponent<RouteProps> = ({
                     }
                     return (
                         <Component
+                            componentProps={{}}
                             {...routeProps}
                             redirectPath={redirectPath}
                             routes={routes}
@@ -118,6 +121,7 @@ const Route: FunctionComponent<RouteProps> = ({
             }
             return (
                 <Component
+                    componentProps={{}}
                     {...routeProps}
                     redirectPath={redirectPath}
                     routes={routes}

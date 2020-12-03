@@ -13,9 +13,13 @@ const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({
 
     if (!route || !match) return null;
 
-    const { breadcrumbTitle, breadcrumbIsLink = true } = route;
+    const {
+        breadcrumbTitle,
+        breadcrumbIsLink = true,
+        breadcrumbIsDisabled = false,
+    } = route;
 
-    if (!breadcrumbTitle) {
+    if (!breadcrumbIsDisabled && !breadcrumbTitle) {
         console.warn(
             `You are attemting to render a breadcrumb for ${match.url} but you did not set a 'breadcrumbTitle' in the configuration for this route. `
         );
@@ -28,6 +32,7 @@ const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({
                 to={match.url}
                 isExact={match.isExact}
                 isLink={breadcrumbIsLink}
+                isDisabled={breadcrumbIsDisabled}
                 route={route}
             />
             <Route
