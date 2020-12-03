@@ -27,6 +27,8 @@ In addition, better react router routing ensures that your routing is accessible
 
 6. Accessible routing
 
+7. Breadcrumbs
+
 ## Usage
 
 ### Define your routes
@@ -118,11 +120,12 @@ const AppRoutes: FunctionComponent = () => {
     return (
       <ReactRouterExtendedProvider
         authenticated={authenticated}
-        initialA11yMessage={"Welcome to Koddi"}
-        initialDocumentTitle={"Koddi"}
+        initialA11yMessage="Welcome to JerryWithAZ"
+        initialDocumentTitle="JerryWithAZ"
         routes={routes}
         FoundComponent={() => <Switch routes={routes} />}
-        NotFoundComponent={() => <div>Page not found</div>}/>
+        NotFoundComponent={() => <div>Page not found</div>}
+      />
     );
 }
 
@@ -214,15 +217,16 @@ You will need to pass the current users permissions or roles to the `ReactRouter
 ```jsx
   <ReactRouterExtendedProvider
     authenticated={authenticated}
-    initialA11yMessage={"Welcome to Koddi"}
-    initialDocumentTitle={"Koddi"}
+    initialA11yMessage="Welcome to JerryWithAZ"
+    initialDocumentTitle="JerryWithAZ"
     routes={routes}
     FoundComponent={() => <Switch routes={routes} />}
     NotFoundComponent={() => <div>Page not found</div>}
     permissions={["admin.read", "admin.write", "theme.write", "users.delete"]} // the current users permissions
     roles={["Admin", "Developer"]} // the current users roles
     FallbackPermissionsComponent={() => <div>You do not have permission</div>} // The component that will be displayed when a user does not have the correct permissions.
-    FallbackRolesComponent={() => <div>You do not have the correct role.</div>}/> // The component that will be displayed when a user does not have the correct roles.
+    FallbackRolesComponent={() => <div>You do not have the correct role.</div>} // The component that will be displayed when a user does not have the correct roles.
+  />
 );
 ```
 
@@ -272,12 +276,83 @@ The global fallback component will be overriden by route specific fallback compo
 ```jsx
   <ReactRouterExtendedProvider
     authenticated={authenticated}
-    initialA11yMessage={"Welcome to Koddi"}
-    initialDocumentTitle={"Koddi"}
+    initialA11yMessage="Welcome to JerryWithAZ"
+    initialDocumentTitle="JerryWithAZ"
     routes={routes}
     FoundComponent={() => <Switch routes={routes} />}
     NotFoundComponent={() => <div>Page not found</div>}
     FallbackPermissionsComponent={() => <div>You do not have permission</div>}
     FallbackRolesComponent={() => <div>You do not have the correct role.</div>}/>
 );
+```
+
+### Breadcrumbs
+
+With `react-router-extended` you get automatic Breadcrumbs right out of the gate.
+By default the Breadcrumbs component will render bradcrumbs using the routes
+passed into the `ReactRouterExtendedProvider`.
+
+```tsx
+import { Breadcrumbs } from 'react-router-extended';
+
+const HomePage = () => {
+  return (
+    <div>
+      <Breadcrumbs />
+      <Content/>
+    </div>
+  );
+}
+```
+
+#### Configuring Breadcrumbs
+
+You can customize the look of breadcrumbs by passing in a `BreadcrumbLinkComponent`
+to the `ReactRouterExtendedProvider`.
+
+```tsx
+
+const CustomBreadcrumbLink = ({
+    isLink,
+    isExact,
+    name,
+    to,
+    route,
+    isDisabled,
+}) => {
+  return <Link href={to}>{name}</Link>
+};
+
+const AppRoutes: FunctionComponent = () => {
+
+    return (
+      <ReactRouterExtendedProvider
+        authenticated={authenticated}
+        initialA11yMessage="Welcome to JerryWithAZ"
+        initialDocumentTitle="JerryWithAZ"
+        routes={routes}
+        FoundComponent={() => <Switch routes={routes} />}
+        NotFoundComponent={() => <div>Page not found</div>}
+        BreadcrumbLinkComponent={CustomBreadcrumbLink}
+      />
+    );
+}
+```
+
+#### With Custom Routes
+
+If you just want to render breadcrumbs for a subset of routes you can pass
+in an array of routes to render breadrcrumbs for.
+
+```tsx
+import { Breadcrumbs } from 'react-router-extended';
+
+const HomePage = ({ routes }) => {
+  return (
+    <div>
+      <Breadcrumbs routes={routes} />
+      <Content/>
+    </div>
+  );
+}
 ```
