@@ -26,7 +26,7 @@ const RedirectAfterLogin = ({
         }
     }, [currentlyAuthenticated, state]);
 
-    return currentlyAuthenticated ? <Redirect to={redirectPath} /> : null;
+    return currentlyAuthenticated && redirectPath && <Redirect to={redirectPath} />
 };
 
 export default RedirectAfterLogin;
